@@ -1,0 +1,1196 @@
+[
+  {
+    "createdAt": "2025-01-03T06:11:05.466Z",
+    "metadata": {
+      "counters": {},
+      "fileIds": ["184483628453"],
+      "objectLists": []
+    },
+    "importRequestJson": {
+      "skipIfKnownImport": false,
+      "shouldApplyBlankValues": false,
+      "parentChildCompanyImport": false,
+      "numberFormatLocale": { "language": "en", "country": "US" },
+      "importNotificationType": "IMPORT_COMPLETED",
+      "marketingEventObjectId": null,
+      "dateFormat": "DAY_MONTH_YEAR",
+      "timeZone": "Z",
+      "language": "en-us",
+      "remappedValues": [],
+      "createContactListFromImport": false,
+      "fileImports": [
+        {
+          "columnDelimiter": ",",
+          "estimatedLineCount": 11,
+          "fileFormat": "CSV",
+          "charset": "UTF-8",
+          "fileId": 184483628453,
+          "pages": [
+            {
+              "columnMappings": [
+                {
+                  "columnObjectType": null,
+                  "columnObjectTypeId": "0-1",
+                  "toColumnObjectTypeId": null,
+                  "engagementType": null,
+                  "columnName": "First Name",
+                  "propertyName": "firstname",
+                  "ignored": false,
+                  "idColumnType": null,
+                  "columnType": "STANDARD",
+                  "foreignKeyType": null,
+                  "associationLabels": null,
+                  "associationIdentifierColumn": false,
+                  "skipIfKnownColumn": false,
+                  "marketingEventSubmissionType": null,
+                  "sensitivityLevel": "none"
+                },
+                {
+                  "columnObjectType": null,
+                  "columnObjectTypeId": "0-1",
+                  "toColumnObjectTypeId": null,
+                  "engagementType": null,
+                  "columnName": "Last Name",
+                  "propertyName": "lastname",
+                  "ignored": false,
+                  "idColumnType": null,
+                  "columnType": "STANDARD",
+                  "foreignKeyType": null,
+                  "associationLabels": null,
+                  "associationIdentifierColumn": false,
+                  "skipIfKnownColumn": false,
+                  "marketingEventSubmissionType": null,
+                  "sensitivityLevel": "none"
+                },
+                {
+                  "columnObjectType": null,
+                  "columnObjectTypeId": "0-1",
+                  "toColumnObjectTypeId": null,
+                  "engagementType": null,
+                  "columnName": "Email",
+                  "propertyName": "email",
+                  "ignored": false,
+                  "idColumnType": null,
+                  "columnType": "HUBSPOT_ALTERNATE_ID",
+                  "foreignKeyType": null,
+                  "associationLabels": null,
+                  "associationIdentifierColumn": false,
+                  "skipIfKnownColumn": false,
+                  "marketingEventSubmissionType": null,
+                  "sensitivityLevel": "none"
+                }
+              ],
+              "additionalColumnMappingAndValues": [],
+              "hasHeader": true
+            }
+          ]
+        }
+      ],
+      "source": "API",
+      "userId": null,
+      "invalidPropertyValues": [],
+      "optOutBusinessUnitId": null,
+      "marketableContactImport": false,
+      "portalId": 48565923,
+      "importOperations": { "0-1": "CREATE" },
+      "importName": "First Contact Data"
+    },
+    "importSource": "API",
+    "importName": "First Contact Data",
+    "state": "STARTED",
+    "id": "55712564",
+    "optOutImport": false,
+    "mappedObjectTypeIds": ["0-1"],
+    "updatedAt": "2025-01-03T06:11:05.575Z"
+  },
+  {
+    "results": [
+      {
+        "createdAt": "2025-01-03T06:12:48.543Z",
+        "metadata": {
+          "counters": {
+            "PROPERTY_VALUES_EMITTED": 10,
+            "ERRORS": 10,
+            "TOTAL_ROWS": 10,
+            "MAPPED_COLUMNS": 3
+          },
+          "fileIds": ["184484955685"],
+          "objectLists": []
+        },
+        "importRequestJson": {
+          "skipIfKnownImport": false,
+          "shouldApplyBlankValues": false,
+          "parentChildCompanyImport": false,
+          "numberFormatLocale": { "language": "en", "country": "US" },
+          "importNotificationType": "IMPORT_COMPLETED",
+          "marketingEventObjectId": null,
+          "dateFormat": "DAY_MONTH_YEAR",
+          "timeZone": "Z",
+          "language": "en-us",
+          "remappedValues": [],
+          "createContactListFromImport": false,
+          "fileImports": [
+            {
+              "columnDelimiter": ",",
+              "estimatedLineCount": 11,
+              "fileFormat": "CSV",
+              "charset": "UTF-8",
+              "fileId": 184484955685,
+              "pages": [
+                {
+                  "columnMappings": [
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "First Name",
+                      "propertyName": "firstname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Last Name",
+                      "propertyName": "lastname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Email",
+                      "propertyName": "email",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "HUBSPOT_ALTERNATE_ID",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    }
+                  ],
+                  "additionalColumnMappingAndValues": [],
+                  "hasHeader": true
+                }
+              ]
+            }
+          ],
+          "source": "API",
+          "userId": null,
+          "invalidPropertyValues": [],
+          "optOutBusinessUnitId": null,
+          "marketableContactImport": false,
+          "portalId": 48565923,
+          "importOperations": { "0-1": "CREATE" },
+          "importName": "First Contact Data"
+        },
+        "importSource": "API",
+        "importName": "First Contact Data",
+        "state": "DONE",
+        "id": "55712591",
+        "optOutImport": false,
+        "mappedObjectTypeIds": ["0-1"],
+        "updatedAt": "2025-01-03T06:25:06.346Z"
+      },
+      {
+        "createdAt": "2025-01-03T06:11:05.466Z",
+        "metadata": {
+          "counters": {
+            "PROPERTY_VALUES_EMITTED": 10,
+            "ERRORS": 10,
+            "TOTAL_ROWS": 10,
+            "MAPPED_COLUMNS": 3
+          },
+          "fileIds": ["184483628453"],
+          "objectLists": []
+        },
+        "importRequestJson": {
+          "skipIfKnownImport": false,
+          "shouldApplyBlankValues": false,
+          "parentChildCompanyImport": false,
+          "numberFormatLocale": { "language": "en", "country": "US" },
+          "importNotificationType": "IMPORT_COMPLETED",
+          "marketingEventObjectId": null,
+          "dateFormat": "DAY_MONTH_YEAR",
+          "timeZone": "Z",
+          "language": "en-us",
+          "remappedValues": [],
+          "createContactListFromImport": false,
+          "fileImports": [
+            {
+              "columnDelimiter": ",",
+              "estimatedLineCount": 11,
+              "fileFormat": "CSV",
+              "charset": "UTF-8",
+              "fileId": 184483628453,
+              "pages": [
+                {
+                  "columnMappings": [
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "First Name",
+                      "propertyName": "firstname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Last Name",
+                      "propertyName": "lastname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Email",
+                      "propertyName": "email",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "HUBSPOT_ALTERNATE_ID",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    }
+                  ],
+                  "additionalColumnMappingAndValues": [],
+                  "hasHeader": true
+                }
+              ]
+            }
+          ],
+          "source": "API",
+          "userId": null,
+          "invalidPropertyValues": [],
+          "optOutBusinessUnitId": null,
+          "marketableContactImport": false,
+          "portalId": 48565923,
+          "importOperations": { "0-1": "CREATE" },
+          "importName": "First Contact Data"
+        },
+        "importSource": "API",
+        "importName": "First Contact Data",
+        "state": "DONE",
+        "id": "55712564",
+        "optOutImport": false,
+        "mappedObjectTypeIds": ["0-1"],
+        "updatedAt": "2025-01-03T06:25:06.349Z"
+      },
+      {
+        "createdAt": "2025-01-03T04:26:47.623Z",
+        "metadata": {
+          "counters": {
+            "PROPERTY_VALUES_EMITTED": 10,
+            "ERRORS": 10,
+            "TOTAL_ROWS": 10,
+            "MAPPED_COLUMNS": 3
+          },
+          "fileIds": ["184483780100"],
+          "objectLists": []
+        },
+        "importRequestJson": {
+          "skipIfKnownImport": false,
+          "shouldApplyBlankValues": false,
+          "parentChildCompanyImport": false,
+          "numberFormatLocale": { "language": "en", "country": "US" },
+          "importNotificationType": "IMPORT_COMPLETED",
+          "marketingEventObjectId": null,
+          "dateFormat": "DAY_MONTH_YEAR",
+          "timeZone": "Z",
+          "language": "en-us",
+          "remappedValues": [],
+          "createContactListFromImport": false,
+          "fileImports": [
+            {
+              "columnDelimiter": ",",
+              "estimatedLineCount": 11,
+              "fileFormat": "CSV",
+              "charset": "UTF-8",
+              "fileId": 184483780100,
+              "pages": [
+                {
+                  "columnMappings": [
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "First Name",
+                      "propertyName": "firstname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Last Name",
+                      "propertyName": "lastname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Email",
+                      "propertyName": "email",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "HUBSPOT_ALTERNATE_ID",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    }
+                  ],
+                  "additionalColumnMappingAndValues": [],
+                  "hasHeader": true
+                }
+              ]
+            }
+          ],
+          "source": "API",
+          "userId": null,
+          "invalidPropertyValues": [],
+          "optOutBusinessUnitId": null,
+          "marketableContactImport": false,
+          "portalId": 48565923,
+          "importOperations": { "0-1": "CREATE" },
+          "importName": "First Contact Data"
+        },
+        "importSource": "API",
+        "importName": "First Contact Data",
+        "state": "DONE",
+        "id": "55710637",
+        "optOutImport": false,
+        "mappedObjectTypeIds": ["0-1"],
+        "updatedAt": "2025-01-03T06:25:06.350Z"
+      },
+      {
+        "createdAt": "2025-01-03T04:15:36.119Z",
+        "metadata": {
+          "counters": {
+            "PROPERTY_VALUES_EMITTED": 10,
+            "ERRORS": 10,
+            "TOTAL_ROWS": 10,
+            "MAPPED_COLUMNS": 3
+          },
+          "fileIds": ["184481564007"],
+          "objectLists": []
+        },
+        "importRequestJson": {
+          "skipIfKnownImport": false,
+          "shouldApplyBlankValues": false,
+          "parentChildCompanyImport": false,
+          "numberFormatLocale": { "language": "en", "country": "US" },
+          "importNotificationType": "IMPORT_COMPLETED",
+          "marketingEventObjectId": null,
+          "dateFormat": "DAY_MONTH_YEAR",
+          "timeZone": "Z",
+          "language": "en-us",
+          "remappedValues": [],
+          "createContactListFromImport": false,
+          "fileImports": [
+            {
+              "columnDelimiter": ",",
+              "estimatedLineCount": 11,
+              "fileFormat": "CSV",
+              "charset": "UTF-8",
+              "fileId": 184481564007,
+              "pages": [
+                {
+                  "columnMappings": [
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "First Name",
+                      "propertyName": "firstname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Last Name",
+                      "propertyName": "lastname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Email",
+                      "propertyName": "email",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "HUBSPOT_ALTERNATE_ID",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    }
+                  ],
+                  "additionalColumnMappingAndValues": [],
+                  "hasHeader": true
+                }
+              ]
+            }
+          ],
+          "source": "API",
+          "userId": null,
+          "invalidPropertyValues": [],
+          "optOutBusinessUnitId": null,
+          "marketableContactImport": false,
+          "portalId": 48565923,
+          "importOperations": { "0-1": "CREATE" },
+          "importName": "First Contact Data"
+        },
+        "importSource": "API",
+        "importName": "First Contact Data",
+        "state": "DONE",
+        "id": "55710436",
+        "optOutImport": false,
+        "mappedObjectTypeIds": ["0-1"],
+        "updatedAt": "2025-01-03T06:25:06.352Z"
+      },
+      {
+        "createdAt": "2025-01-02T06:19:37.780Z",
+        "metadata": {
+          "counters": {
+            "PROPERTY_VALUES_EMITTED": 10,
+            "ERRORS": 10,
+            "TOTAL_ROWS": 10,
+            "MAPPED_COLUMNS": 3
+          },
+          "fileIds": ["184448894240"],
+          "objectLists": []
+        },
+        "importRequestJson": {
+          "skipIfKnownImport": false,
+          "shouldApplyBlankValues": false,
+          "parentChildCompanyImport": false,
+          "numberFormatLocale": { "language": "en", "country": "US" },
+          "importNotificationType": "IMPORT_COMPLETED",
+          "marketingEventObjectId": null,
+          "dateFormat": "DAY_MONTH_YEAR",
+          "timeZone": "Z",
+          "language": "en-us",
+          "remappedValues": [],
+          "createContactListFromImport": false,
+          "fileImports": [
+            {
+              "columnDelimiter": ",",
+              "estimatedLineCount": 11,
+              "fileFormat": "CSV",
+              "charset": "UTF-8",
+              "fileId": 184448894240,
+              "pages": [
+                {
+                  "columnMappings": [
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "First Name",
+                      "propertyName": "firstname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Last Name",
+                      "propertyName": "lastname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Email",
+                      "propertyName": "email",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "HUBSPOT_ALTERNATE_ID",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    }
+                  ],
+                  "additionalColumnMappingAndValues": [],
+                  "hasHeader": true
+                }
+              ]
+            }
+          ],
+          "source": "API",
+          "userId": null,
+          "invalidPropertyValues": [],
+          "optOutBusinessUnitId": null,
+          "marketableContactImport": false,
+          "portalId": 48565923,
+          "importOperations": { "0-1": "CREATE" },
+          "importName": "First Contact Data"
+        },
+        "importSource": "API",
+        "importName": "First Contact Data",
+        "state": "DONE",
+        "id": "55673790",
+        "optOutImport": false,
+        "mappedObjectTypeIds": ["0-1"],
+        "updatedAt": "2025-01-03T06:25:06.354Z"
+      },
+      {
+        "createdAt": "2025-01-02T06:19:34.077Z",
+        "metadata": {
+          "counters": {
+            "PROPERTY_VALUES_EMITTED": 10,
+            "ERRORS": 10,
+            "TOTAL_ROWS": 10,
+            "MAPPED_COLUMNS": 3
+          },
+          "fileIds": ["184450605490"],
+          "objectLists": []
+        },
+        "importRequestJson": {
+          "skipIfKnownImport": false,
+          "shouldApplyBlankValues": false,
+          "parentChildCompanyImport": false,
+          "numberFormatLocale": { "language": "en", "country": "US" },
+          "importNotificationType": "IMPORT_COMPLETED",
+          "marketingEventObjectId": null,
+          "dateFormat": "DAY_MONTH_YEAR",
+          "timeZone": "Z",
+          "language": "en-us",
+          "remappedValues": [],
+          "createContactListFromImport": false,
+          "fileImports": [
+            {
+              "columnDelimiter": ",",
+              "estimatedLineCount": 11,
+              "fileFormat": "CSV",
+              "charset": "UTF-8",
+              "fileId": 184450605490,
+              "pages": [
+                {
+                  "columnMappings": [
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "First Name",
+                      "propertyName": "firstname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Last Name",
+                      "propertyName": "lastname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Email",
+                      "propertyName": "email",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "HUBSPOT_ALTERNATE_ID",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    }
+                  ],
+                  "additionalColumnMappingAndValues": [],
+                  "hasHeader": true
+                }
+              ]
+            }
+          ],
+          "source": "API",
+          "userId": null,
+          "invalidPropertyValues": [],
+          "optOutBusinessUnitId": null,
+          "marketableContactImport": false,
+          "portalId": 48565923,
+          "importOperations": { "0-1": "CREATE" },
+          "importName": "First Contact Data"
+        },
+        "importSource": "API",
+        "importName": "First Contact Data",
+        "state": "DONE",
+        "id": "55673789",
+        "optOutImport": false,
+        "mappedObjectTypeIds": ["0-1"],
+        "updatedAt": "2025-01-03T06:25:06.356Z"
+      },
+      {
+        "createdAt": "2025-01-02T06:18:16.863Z",
+        "metadata": {
+          "counters": {
+            "PROPERTY_VALUES_EMITTED": 10,
+            "TOTAL_ROWS": 10,
+            "MAPPED_COLUMNS": 3,
+            "CREATED_OBJECTS": 10
+          },
+          "fileIds": ["184448865929"],
+          "objectLists": []
+        },
+        "importRequestJson": {
+          "skipIfKnownImport": false,
+          "shouldApplyBlankValues": false,
+          "parentChildCompanyImport": false,
+          "numberFormatLocale": { "language": "en", "country": "US" },
+          "importNotificationType": "IMPORT_COMPLETED",
+          "marketingEventObjectId": null,
+          "dateFormat": "DAY_MONTH_YEAR",
+          "timeZone": "Z",
+          "language": "en-us",
+          "remappedValues": [],
+          "createContactListFromImport": false,
+          "fileImports": [
+            {
+              "columnDelimiter": ",",
+              "estimatedLineCount": 11,
+              "fileFormat": "CSV",
+              "charset": "UTF-8",
+              "fileId": 184448865929,
+              "pages": [
+                {
+                  "columnMappings": [
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "First Name",
+                      "propertyName": "firstname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Last Name",
+                      "propertyName": "lastname",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "STANDARD",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    },
+                    {
+                      "columnObjectType": null,
+                      "columnObjectTypeId": "0-1",
+                      "toColumnObjectTypeId": null,
+                      "engagementType": null,
+                      "columnName": "Email",
+                      "propertyName": "email",
+                      "ignored": false,
+                      "idColumnType": null,
+                      "columnType": "HUBSPOT_ALTERNATE_ID",
+                      "foreignKeyType": null,
+                      "associationLabels": null,
+                      "associationIdentifierColumn": false,
+                      "skipIfKnownColumn": false,
+                      "marketingEventSubmissionType": null,
+                      "sensitivityLevel": "none"
+                    }
+                  ],
+                  "additionalColumnMappingAndValues": [],
+                  "hasHeader": true
+                }
+              ]
+            }
+          ],
+          "source": "API",
+          "userId": null,
+          "invalidPropertyValues": [],
+          "optOutBusinessUnitId": null,
+          "marketableContactImport": false,
+          "portalId": 48565923,
+          "importOperations": { "0-1": "CREATE" },
+          "importName": "First Contact Data"
+        },
+        "importSource": "API",
+        "importName": "First Contact Data",
+        "state": "DONE",
+        "id": "55673771",
+        "optOutImport": false,
+        "mappedObjectTypeIds": ["0-1"],
+        "updatedAt": "2025-01-03T06:25:06.358Z"
+      }
+    ]
+  },
+  {
+    "createdAt": "2025-01-02T06:19:37.780Z",
+    "metadata": {
+      "counters": {
+        "PROPERTY_VALUES_EMITTED": 10,
+        "ERRORS": 10,
+        "TOTAL_ROWS": 10,
+        "MAPPED_COLUMNS": 3
+      },
+      "fileIds": ["184448894240"],
+      "objectLists": []
+    },
+    "importRequestJson": {
+      "skipIfKnownImport": false,
+      "shouldApplyBlankValues": false,
+      "parentChildCompanyImport": false,
+      "numberFormatLocale": { "language": "en", "country": "US" },
+      "importNotificationType": "IMPORT_COMPLETED",
+      "marketingEventObjectId": null,
+      "dateFormat": "DAY_MONTH_YEAR",
+      "timeZone": "Z",
+      "language": "en-us",
+      "remappedValues": [],
+      "createContactListFromImport": false,
+      "fileImports": [
+        {
+          "columnDelimiter": ",",
+          "estimatedLineCount": 11,
+          "fileFormat": "CSV",
+          "charset": "UTF-8",
+          "fileId": 184448894240,
+          "pages": [
+            {
+              "columnMappings": [
+                {
+                  "columnObjectType": null,
+                  "columnObjectTypeId": "0-1",
+                  "toColumnObjectTypeId": null,
+                  "engagementType": null,
+                  "columnName": "First Name",
+                  "propertyName": "firstname",
+                  "ignored": false,
+                  "idColumnType": null,
+                  "columnType": "STANDARD",
+                  "foreignKeyType": null,
+                  "associationLabels": null,
+                  "associationIdentifierColumn": false,
+                  "skipIfKnownColumn": false,
+                  "marketingEventSubmissionType": null,
+                  "sensitivityLevel": "none"
+                },
+                {
+                  "columnObjectType": null,
+                  "columnObjectTypeId": "0-1",
+                  "toColumnObjectTypeId": null,
+                  "engagementType": null,
+                  "columnName": "Last Name",
+                  "propertyName": "lastname",
+                  "ignored": false,
+                  "idColumnType": null,
+                  "columnType": "STANDARD",
+                  "foreignKeyType": null,
+                  "associationLabels": null,
+                  "associationIdentifierColumn": false,
+                  "skipIfKnownColumn": false,
+                  "marketingEventSubmissionType": null,
+                  "sensitivityLevel": "none"
+                },
+                {
+                  "columnObjectType": null,
+                  "columnObjectTypeId": "0-1",
+                  "toColumnObjectTypeId": null,
+                  "engagementType": null,
+                  "columnName": "Email",
+                  "propertyName": "email",
+                  "ignored": false,
+                  "idColumnType": null,
+                  "columnType": "HUBSPOT_ALTERNATE_ID",
+                  "foreignKeyType": null,
+                  "associationLabels": null,
+                  "associationIdentifierColumn": false,
+                  "skipIfKnownColumn": false,
+                  "marketingEventSubmissionType": null,
+                  "sensitivityLevel": "none"
+                }
+              ],
+              "additionalColumnMappingAndValues": [],
+              "hasHeader": true
+            }
+          ]
+        }
+      ],
+      "source": "API",
+      "userId": null,
+      "invalidPropertyValues": [],
+      "optOutBusinessUnitId": null,
+      "marketableContactImport": false,
+      "portalId": 48565923,
+      "importOperations": { "0-1": "CREATE" },
+      "importName": "First Contact Data"
+    },
+    "importSource": "API",
+    "importName": "First Contact Data",
+    "state": "DONE",
+    "id": "55673790",
+    "optOutImport": false,
+    "mappedObjectTypeIds": ["0-1"],
+    "updatedAt": "2025-01-03T06:33:51.433Z"
+  },
+  {
+    "results": [
+        {
+            "errorType": "CREATE_ONLY_IMPORT",
+            "sourceData": {
+                "rowData": [],
+                "additionalRowData": [],
+                "fileId": 184448894240,
+                "pageName": null,
+                "lineNumber": 2,
+                "containsEncryptedProperties": false
+            },
+            "objectType": null,
+            "invalidValue": "john.doe@example.com",
+            "invalidPropertyValue": null,
+            "invalidValueToDisplay": "john.doe@example.com",
+            "extraContext": "email",
+            "objectTypeId": "0-1",
+            "knownColumnNumber": 2,
+            "errorMessage": null,
+            "createdAt": 1735798779397,
+            "id": "NDg1NjU5MjMtNTU2NzM3OTAtMTg0NDQ4ODk0MjQwLTItT3B0aW9uYWwuZW1wdHk%3D"
+        },
+        {
+            "errorType": "CREATE_ONLY_IMPORT",
+            "sourceData": {
+                "rowData": [],
+                "additionalRowData": [],
+                "fileId": 184448894240,
+                "pageName": null,
+                "lineNumber": 3,
+                "containsEncryptedProperties": false
+            },
+            "objectType": null,
+            "invalidValue": "jane.smith@example.com",
+            "invalidPropertyValue": null,
+            "invalidValueToDisplay": "jane.smith@example.com",
+            "extraContext": "email",
+            "objectTypeId": "0-1",
+            "knownColumnNumber": 2,
+            "errorMessage": null,
+            "createdAt": 1735798779267,
+            "id": "NDg1NjU5MjMtNTU2NzM3OTAtMTg0NDQ4ODk0MjQwLTMtT3B0aW9uYWwuZW1wdHk%3D"
+        },
+        {
+            "errorType": "CREATE_ONLY_IMPORT",
+            "sourceData": {
+                "rowData": [],
+                "additionalRowData": [],
+                "fileId": 184448894240,
+                "pageName": null,
+                "lineNumber": 4,
+                "containsEncryptedProperties": false
+            },
+            "objectType": null,
+            "invalidValue": "michael.brown@example.com",
+            "invalidPropertyValue": null,
+            "invalidValueToDisplay": "michael.brown@example.com",
+            "extraContext": "email",
+            "objectTypeId": "0-1",
+            "knownColumnNumber": 2,
+            "errorMessage": null,
+            "createdAt": 1735798779261,
+            "id": "NDg1NjU5MjMtNTU2NzM3OTAtMTg0NDQ4ODk0MjQwLTQtT3B0aW9uYWwuZW1wdHk%3D"
+        },
+        {
+            "errorType": "CREATE_ONLY_IMPORT",
+            "sourceData": {
+                "rowData": [],
+                "additionalRowData": [],
+                "fileId": 184448894240,
+                "pageName": null,
+                "lineNumber": 5,
+                "containsEncryptedProperties": false
+            },
+            "objectType": null,
+            "invalidValue": "emily.davis@example.com",
+            "invalidPropertyValue": null,
+            "invalidValueToDisplay": "emily.davis@example.com",
+            "extraContext": "email",
+            "objectTypeId": "0-1",
+            "knownColumnNumber": 2,
+            "errorMessage": null,
+            "createdAt": 1735798779396,
+            "id": "NDg1NjU5MjMtNTU2NzM3OTAtMTg0NDQ4ODk0MjQwLTUtT3B0aW9uYWwuZW1wdHk%3D"
+        },
+        {
+            "errorType": "CREATE_ONLY_IMPORT",
+            "sourceData": {
+                "rowData": [],
+                "additionalRowData": [],
+                "fileId": 184448894240,
+                "pageName": null,
+                "lineNumber": 6,
+                "containsEncryptedProperties": false
+            },
+            "objectType": null,
+            "invalidValue": "chris.wilson@example.com",
+            "invalidPropertyValue": null,
+            "invalidValueToDisplay": "chris.wilson@example.com",
+            "extraContext": "email",
+            "objectTypeId": "0-1",
+            "knownColumnNumber": 2,
+            "errorMessage": null,
+            "createdAt": 1735798779332,
+            "id": "NDg1NjU5MjMtNTU2NzM3OTAtMTg0NDQ4ODk0MjQwLTYtT3B0aW9uYWwuZW1wdHk%3D"
+        },
+        {
+            "errorType": "CREATE_ONLY_IMPORT",
+            "sourceData": {
+                "rowData": [],
+                "additionalRowData": [],
+                "fileId": 184448894240,
+                "pageName": null,
+                "lineNumber": 7,
+                "containsEncryptedProperties": false
+            },
+            "objectType": null,
+            "invalidValue": "sarah.johnson@example.com",
+            "invalidPropertyValue": null,
+            "invalidValueToDisplay": "sarah.johnson@example.com",
+            "extraContext": "email",
+            "objectTypeId": "0-1",
+            "knownColumnNumber": 2,
+            "errorMessage": null,
+            "createdAt": 1735798779365,
+            "id": "NDg1NjU5MjMtNTU2NzM3OTAtMTg0NDQ4ODk0MjQwLTctT3B0aW9uYWwuZW1wdHk%3D"
+        },
+        {
+            "errorType": "CREATE_ONLY_IMPORT",
+            "sourceData": {
+                "rowData": [],
+                "additionalRowData": [],
+                "fileId": 184448894240,
+                "pageName": null,
+                "lineNumber": 8,
+                "containsEncryptedProperties": false
+            },
+            "objectType": null,
+            "invalidValue": "daniel.garcia@example.com",
+            "invalidPropertyValue": null,
+            "invalidValueToDisplay": "daniel.garcia@example.com",
+            "extraContext": "email",
+            "objectTypeId": "0-1",
+            "knownColumnNumber": 2,
+            "errorMessage": null,
+            "createdAt": 1735798779261,
+            "id": "NDg1NjU5MjMtNTU2NzM3OTAtMTg0NDQ4ODk0MjQwLTgtT3B0aW9uYWwuZW1wdHk%3D"
+        },
+        {
+            "errorType": "CREATE_ONLY_IMPORT",
+            "sourceData": {
+                "rowData": [],
+                "additionalRowData": [],
+                "fileId": 184448894240,
+                "pageName": null,
+                "lineNumber": 9,
+                "containsEncryptedProperties": false
+            },
+            "objectType": null,
+            "invalidValue": "laura.miller@example.com",
+            "invalidPropertyValue": null,
+            "invalidValueToDisplay": "laura.miller@example.com",
+            "extraContext": "email",
+            "objectTypeId": "0-1",
+            "knownColumnNumber": 2,
+            "errorMessage": null,
+            "createdAt": 1735798779306,
+            "id": "NDg1NjU5MjMtNTU2NzM3OTAtMTg0NDQ4ODk0MjQwLTktT3B0aW9uYWwuZW1wdHk%3D"
+        },
+        {
+            "errorType": "CREATE_ONLY_IMPORT",
+            "sourceData": {
+                "rowData": [],
+                "additionalRowData": [],
+                "fileId": 184448894240,
+                "pageName": null,
+                "lineNumber": 10,
+                "containsEncryptedProperties": false
+            },
+            "objectType": null,
+            "invalidValue": "david.martinez@example.com",
+            "invalidPropertyValue": null,
+            "invalidValueToDisplay": "david.martinez@example.com",
+            "extraContext": "email",
+            "objectTypeId": "0-1",
+            "knownColumnNumber": 2,
+            "errorMessage": null,
+            "createdAt": 1735798779332,
+            "id": "NDg1NjU5MjMtNTU2NzM3OTAtMTg0NDQ4ODk0MjQwLTEwLU9wdGlvbmFsLmVtcHR5"
+        },
+        {
+            "errorType": "CREATE_ONLY_IMPORT",
+            "sourceData": {
+                "rowData": [],
+                "additionalRowData": [],
+                "fileId": 184448894240,
+                "pageName": null,
+                "lineNumber": 11,
+                "containsEncryptedProperties": false
+            },
+            "objectType": null,
+            "invalidValue": "anna.taylor@example.com",
+            "invalidPropertyValue": null,
+            "invalidValueToDisplay": "anna.taylor@example.com",
+            "extraContext": "email",
+            "objectTypeId": "0-1",
+            "knownColumnNumber": 2,
+            "errorMessage": null,
+            "createdAt": 1735798779398,
+            "id": "NDg1NjU5MjMtNTU2NzM3OTAtMTg0NDQ4ODk0MjQwLTExLU9wdGlvbmFsLmVtcHR5"
+        }
+    ]
+}
+]
