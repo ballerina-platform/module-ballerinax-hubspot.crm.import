@@ -1,11 +1,22 @@
-import ballerina/http;
+// import ballerina/http;
 import ballerina/io;
 import ballerina/test;
+import ballerina/oauth2;
 
-configurable http:BearerTokenConfig & readonly authConfig = ?;
-ConnectionConfig config = {auth: authConfig};
+configurable string clientId = ?;
+configurable string clientSecret = ?;
+configurable string refreshToken = ?;
+configurable string serviceUrl = "https://api.hubapi.com";
 
-Client baseClient = check new Client(config, serviceUrl = "https://api.hubapi.com");
+OAuth2RefreshTokenGrantConfig auth = {
+    clientId: clientId,
+    clientSecret: clientSecret,
+    refreshToken: refreshToken,
+    credentialBearer: oauth2:POST_BODY_BEARER
+};
+
+ConnectionConfig config = {auth: auth};
+final Client baseClient = check new Client(config, serviceUrl);
 
 int importId = 0;
 
