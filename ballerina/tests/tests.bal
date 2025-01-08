@@ -45,7 +45,9 @@ function createImport() returns int|error {
 };
 
 // Tests
-@test:Config
+@test:Config{
+    groups: ["live_tests", "mock_tests"]
+}
 function testPost_() returns error? {
     string csvFilePath = "tests/resources/dummy_file.csv";
     byte[] bytes = check io:fileReadBytes(csvFilePath);
@@ -64,7 +66,9 @@ function testPost_() returns error? {
     test:assertEquals(response.state, "STARTED", "State should be in STARTED state");
 };
 
-@test:Config
+@test:Config{
+    groups: ["live_tests", "mock_tests"]
+}
 function testPost_importId_cancel() returns error? {
     int buildUpImportId = check createImport();
 
@@ -74,7 +78,9 @@ function testPost_importId_cancel() returns error? {
     test:assertNotEquals(response.status, (), msg = "No status in response");
 }
 
-@test:Config
+@test:Config{
+    groups: ["live_tests", "mock_tests"]
+}
 function testGet_importId() returns error? {
     int buildUpImportId = check createImport();
 
@@ -84,7 +90,9 @@ function testGet_importId() returns error? {
     test:assertNotEquals(response.id, (), "No id in response");
 }
 
-@test:Config
+@test:Config{
+    groups: ["live_tests", "mock_tests"]
+}
 function testGet_() returns error? {
     CollectionResponsePublicImportResponse response = check baseClient->/.get({});
 
@@ -98,7 +106,9 @@ function testGet_() returns error? {
     }
 }
 
-@test:Config
+@test:Config{
+    groups: ["live_tests", "mock_tests"]
+}
 function testGet_importId_error() returns error? {
     int buildUpImportId = check createImport();
 
@@ -106,4 +116,3 @@ function testGet_importId_error() returns error? {
 
     test:assertNotEquals(response.results, (), msg = "Results should not be null");
 }
-
