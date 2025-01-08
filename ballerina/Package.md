@@ -139,9 +139,9 @@ import ballerina/oauth2;
 1. Create a `Config.toml` file and, configure the obtained credentials in the above steps as follows:
 
    ```toml
-    clientId = <Client Id>
-    clientSecret = <Client Secret>
-    refreshToken = <Refresh Token>
+    clientId = "<Client Id>"
+    clientSecret = "<Client Secret>"
+    refreshToken = "<Refresh Token>"
    ```
 
 2. Instantiate a `crmImport:ConnectionConfig` with the obtained credentials and initialize the connector with it.
