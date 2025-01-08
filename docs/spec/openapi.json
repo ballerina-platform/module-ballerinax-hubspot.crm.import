@@ -18,7 +18,7 @@
       "x-hubspot-introduction" : "Use the imports API to import CRM records and activities, such as contacts, companies, and notes, into your HubSpot account."
     },
     "servers" : [ {
-      "url" : "https://api.hubapi.com"
+      "url" : "https://api.hubapi.com/crm/v3/imports"
     } ],
     "tags" : [ {
       "name" : "Core"
@@ -26,12 +26,12 @@
       "name" : "Public_Imports"
     } ],
     "paths" : {
-      "/crm/v3/imports/{importId}/cancel" : {
+      "/{importId}/cancel" : {
         "post" : {
           "tags" : [ "Core" ],
           "summary" : "Cancel an active import",
           "description" : "This allows a developer to cancel an active import.",
-          "operationId" : "post-/crm/v3/imports/{importId}/cancel_cancel",
+          "operationId" : "post-/{importId}/cancel_cancel",
           "parameters" : [ {
             "name" : "importId",
             "in" : "path",
@@ -65,12 +65,12 @@
           } ]
         }
       },
-      "/crm/v3/imports/{importId}" : {
+      "/{importId}" : {
         "get" : {
           "tags" : [ "Core" ],
           "summary" : "Get the information on any import",
           "description" : "A complete summary of an import record, including any updates.",
-          "operationId" : "get-/crm/v3/imports/{importId}_getById",
+          "operationId" : "get-/{importId}_getById",
           "parameters" : [ {
             "name" : "importId",
             "in" : "path",
@@ -104,10 +104,10 @@
           } ]
         }
       },
-      "/crm/v3/imports/{importId}/errors" : {
+      "/{importId}/errors" : {
         "get" : {
           "tags" : [ "Public_Imports" ],
-          "operationId" : "get-/crm/v3/imports/{importId}/errors_getErrors",
+          "operationId" : "get-/{importId}/errors_getErrors",
           "parameters" : [ {
             "name" : "after",
             "in" : "query",
@@ -182,12 +182,12 @@
           } ]
         }
       },
-      "/crm/v3/imports/" : {
+      "/" : {
         "get" : {
           "tags" : [ "Core" ],
           "summary" : "Get active imports",
           "description" : "Returns a paged list of active imports for this account.",
-          "operationId" : "get-/crm/v3/imports/_getPage",
+          "operationId" : "get-/_getPage",
           "parameters" : [ {
             "name" : "after",
             "in" : "query",
@@ -244,7 +244,7 @@
           "tags" : [ "Core" ],
           "summary" : "Start a new import",
           "description" : "Begins importing data from the specified file resources. This uploads the corresponding file and uses the import request object to convert rows in the files to objects.",
-          "operationId" : "post-/crm/v3/imports/_create",
+          "operationId" : "post-/_create",
           "parameters" : [ ],
           "requestBody" : {
             "content" : {

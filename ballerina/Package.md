@@ -1,16 +1,10 @@
 ## Overview
 
-[//]: # "TODO: Add overview mentioning the purpose of the module, supported REST API versions, and other high-level details."
+[HubSpot](https://www.hubspot.com/our-story) is an AI-powered customer relationship management (CRM) platform. 
 
-[HubSpot](https://www.hubspot.com/our-story) is a customer platform with all the software, integrations, and resources users need to connect their marketing, sales, and customer service.
-
-The `ballerinax/hubspot.crm.imports` package offers APIs to connect and interact with [HubSpot CRM Imports API](https://developers.hubspot.com/docs/api/crm/imports) endpoints, specifically based on [HubSpot CRM Imports API v3 OpenAPI spec](https://github.com/HubSpot/HubSpot-public-api-spec-collection/blob/main/PublicApiSpecs/CRM/Imports/Rollouts/144903/v3/imports.json).
-
-Using this API, users can develop applications that enable importing large datasets (e.g., contacts, deals, companies) into HubSpot CRM.
+The ballerinax `ballerinax/hubspot.crm.imports` offers APIs to connect and interact with the [HubSpot CRM Imports API](https://developers.hubspot.com/docs/api/crm/imports) endpoints, specifically based on the [HubSpot CRM Imports API v3 OpenAPI spec](https://github.com/HubSpot/HubSpot-public-api-spec-collection/blob/main/PublicApiSpecs/CRM/Imports/Rollouts/144903/v3/imports.json)
 
 ## Setup guide
-
-[//]: # "TODO: Add detailed steps to obtain credentials and configure the module."
 
 To use the HubSpot CRM imports connector, you must have access to the HubSpot API through a HubSpot developer account and a HubSpot App under it. Therefore you need to register for a developer account at HubSpot if you don't have one already.
 
@@ -24,11 +18,12 @@ If you don't have a HubSpot Developer Account you can sign up to a free account 
 
 Within app developer accounts, you can create developer test accounts to test apps and integrations without affecting any real HubSpot data.
 
-**_These accounts are only for development and testing purposes. In production you should not use Developer Test Accounts._**
+> **Note:**_These accounts are only for development and testing purposes. In production you should not use Developer Test Accounts._**
 
 1. Go to Test Account section from the left sidebar.
 
-   <img src=../docs/setup/resources/test_acc_1.png alt="Hubspot developer portal" style="width: 70%;">
+   [Hubspot developer portal](../docs/setup/resources/test_acc_1.png)
+   <!-- <img src=../docs/setup/resources/test_acc_1.png alt="Hubspot developer portal" style="width: 70%;"> -->
 
 2. Click Create developer test account.
 
@@ -128,8 +123,6 @@ Before proceeding with the Quickstart, ensure you have obtained the Access Token
 
 ## Quickstart
 
-[//]: # "TODO: Add a quickstart guide to demonstrate a basic functionality of the module, including sample code snippets."
-<!-- 
 To use the `HubSpot CRM Imports` connector in your Ballerina application, update the `.bal` file as follows:
 
 ### Step 1: Import the module
@@ -137,7 +130,7 @@ To use the `HubSpot CRM Imports` connector in your Ballerina application, update
 Import the `hubspot.crm.import` module and `oauth2` module.
 
 ```ballerina
-import ballerinax/hubspot.crm.import as hscimport;
+import ballerinax/hubspot.crm.'import as crmImport;
 import ballerina/oauth2;
 ```
 
@@ -151,7 +144,7 @@ import ballerina/oauth2;
     refreshToken = <Refresh Token>
    ```
 
-2. Instantiate a `hscimport:ConnectionConfig` with the obtained credentials and initialize the connector with it.
+2. Instantiate a `crmImport:ConnectionConfig` with the obtained credentials and initialize the connector with it.
 
     ```ballerina 
     configurable string clientId = ?;
@@ -167,30 +160,22 @@ import ballerina/oauth2;
         }
     };
 
-    final hscimport:Client hscimport = check new (hscimportConfig, "https://api.hubapi.com");
+    final crmImport:Client baseClient = check new crmImport:Client(config);
     ```
 
 ### Step 3: Invoke the connector operation
 
 Now, utilize the available connector operations. A sample usecase is shown below.
 
-#### Create a Marketing Event
+#### Get a paged list of active imports
     
 ```ballerina
 public function main() returns error? {
-    hscimport:MarketingEventDefaultResponse createEvent = check hscimport->/marketing/v3/marketing\-events/events.post( 
-        payload = {
-            externalAccountId: "ExternalId",
-            eventOrganizer: "Organizer",
-            eventName: "Test Event"
-        }
-    );
+    crmImport:CollectionResponsePublicImportResponse response = check baseClient->/crm/v3/imports.get({});
 }
 ```
 
 
 ## Examples
 
-The `HubSpot CRM Imports` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://example.com), covering the following use cases:
-
-[//]: # "TODO: Add examples" -->
+The `HubSpot CRM Imports` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/examples), covering the following use cases:

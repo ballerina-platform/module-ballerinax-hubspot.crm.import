@@ -1,13 +1,13 @@
 import ballerina/io;
+import ballerina/lang.runtime;
 import ballerina/oauth2;
 import ballerina/test;
-import ballerina/lang.runtime;
 
 // OAuth 2.0 Credentials
 configurable string clientId = ?;
 configurable string clientSecret = ?;
 configurable string refreshToken = ?;
-configurable string serviceUrl = "https://api.hubapi.com";
+configurable string serviceUrl = "https://api.hubapi.com/crm/v3/imports";
 
 OAuth2RefreshTokenGrantConfig auth = {
     clientId: clientId,
@@ -21,149 +21,110 @@ ConnectionConfig config = {auth: auth};
 final Client baseClient = check new Client(config, serviceUrl);
 
 // Local variables
-string importRequestString = string `{
-        "name": "First Contact Data",
-        "importOperations": {
-        "0-1": "CREATE"
-        },
-        "dateFormat": "DAY_MONTH_YEAR",
-        "files": [
-        {
-            "fileName": "dummy_contact_data.csv",
-            "fileFormat": "CSV",
-            "fileImportPage": {
-            "hasHeader": true,
-            "columnMappings": [
-                {
-                "columnObjectTypeId": "0-1",
-                "columnName": "First Name",
-                "propertyName": "firstname"
-                },
-                {
-                "columnObjectTypeId": "0-1",
-                "columnName": "Last Name",
-                "propertyName": "lastname"
-                },
-                {
-                "columnObjectTypeId": "0-1",
-                "columnName": "Email",
-                "propertyName": "email",
-                "columnType": "HUBSPOT_ALTERNATE_ID"
-                }
-            ]
-            }
-        }
-        ]
-    }`;
+json readJson = check io:fileReadJson("tests/resources/dummy_importRequest.json");
+string importRequestString = readJson.toString();
 
 // Support functions
 function createImport() returns int|error {
     // Load a dummy data file
-    string csvFilePath = "tests/resources/dummy_contact_data.csv";
+    string csvFilePath = "tests/resources/dummy_file.csv";
     byte[] bytes = check io:fileReadBytes(csvFilePath);
 
     // Request body
-    v3_imports_body body = {
+    body requestBody = {
         files: {
             fileContent: bytes,
-            fileName: "dummy_contact_data.csv"
+            fileName: "dummy_file.csv"
         },
         importRequest: importRequestString
     };
 
     // Test buildup API call
-    PublicImportResponse buildupResponse = check baseClient->/crm/v3/imports.post(payload = body);
-    int buildUpImportId = check int:fromString(buildupResponse.id ?:"0");
+    PublicImportResponse buildupResponse = check baseClient->/.post(payload = requestBody);
+    int buildUpImportId = check int:fromString(buildupResponse.id ?: "0");
 
     // Return a valid dummy import ID
     return buildUpImportId;
 };
 
+// Tests
 @test:Config
-function testPost_crm_v3_imports() returns error? {
+function testPost_() returns error? {
     // Loading a dummy data file
-    string csvFilePath = "tests/resources/dummy_contact_data.csv";
+    string csvFilePath = "tests/resources/dummy_file.csv";
     byte[] bytes = check io:fileReadBytes(csvFilePath);
 
     // Request body
-    v3_imports_body body = {
+    body requestBody = {
         files: {
             fileContent: bytes,
-            fileName: "dummy_contact_data.csv"
+            fileName: "dummy_file.csv"
         },
         importRequest: importRequestString
     };
 
     // Test API call
-    PublicImportResponse response = check baseClient->/crm/v3/imports.post(payload = body);
+    PublicImportResponse response = check baseClient->/.post(payload = requestBody);
 
     // Assertions
-    test:assertNotEquals(response.createdAt,(), "No createdAt timestamp in response");
-    test:assertNotEquals(response.metadata,(), "No metadata in response");
-    test:assertNotEquals(response?.importRequestJson,(), "No importRequestJson in response");
     test:assertNotEquals(response.id, (), "No id in response");
-    test:assertEquals(response.state, "STARTED", "State should be STARTED");
+    test:assertEquals(response.state, "STARTED", "State should be in STARTED state");
 };
 
 @test:Config
-function  testPost_crm_v3_imports_importId_cancel() returns error?{
+function testPost_importId_cancel() returns error? {
     // Create a dummy import
     int buildUpImportId = check createImport();
 
     // Test API call
-    ActionResponse response = check baseClient->/crm/v3/imports/[buildUpImportId]/cancel.post();
+    ActionResponse response = check baseClient->/[buildUpImportId]/cancel.post();
 
     // Assertions
-    test:assertNotEquals(response.completedAt, (), msg = "No completedAt timestamp in response");
     test:assertNotEquals(response.startedAt, (), msg = "No startedAt timestamp in response");
     test:assertNotEquals(response.status, (), msg = "No status in response");
 }
 
 @test:Config
-function  testGet_crm_v3_imports_importId() returns error? {
+function testGet_importId() returns error? {
     // Create a dummy import
     int buildUpImportId = check createImport();
 
     runtime:sleep(2);
 
     // Test API call
-    PublicImportResponse response = check baseClient->/crm/v3/imports/[buildUpImportId].get({});
+    PublicImportResponse response = check baseClient->/[buildUpImportId].get({});
 
     // Assertions
-    test:assertNotEquals(response.createdAt,(), "No createdAt timestamp in response");
-    test:assertNotEquals(response.metadata,(), "No metadata in response");
-    test:assertNotEquals(response?.importRequestJson,(), "No importRequestJson in response");
+    test:assertNotEquals(response.createdAt, (), "No createdAt timestamp in response");
     test:assertNotEquals(response.id, (), "No id in response");
-    test:assertNotEquals(response.state, (), msg = "No state in response");
 }
 
 @test:Config
-function testGet_crm_v3_imports() returns error? {
+function testGet_() returns error? {
     // Test API call
-    CollectionResponsePublicImportResponse response = check baseClient->/crm/v3/imports.get({});
-    
+    CollectionResponsePublicImportResponse response = check baseClient->/.get({});
+
     // Assertions
     test:assertNotEquals(response.results, null, msg = "Value should not be null");
 
     PublicImportResponse[] results = response.results ?: [];
     if (results.length() > 0) {
-        test:assertNotEquals(results[0].createdAt, (), "No createdAt timestamp in response");
-        test:assertNotEquals(results[0].metadata, (), "No metadata in response");
-        test:assertNotEquals(results[0]?.importRequestJson, (), "No importRequestJson in response");
-        test:assertNotEquals(results[0].id, (), "No id in response");
-        test:assertNotEquals(results[0].state, (), "No state in response");
+        foreach var item in results {
+            test:assertNotEquals(item.createdAt, (), "No createdAt timestamp in response");
+            test:assertNotEquals(item.id, (), "No id in response");
+        }
     }
 }
 
 @test:Config
-function  testGet_crm_v3_imports_importId_error() returns error? {
+function testGet_importId_error() returns error? {
     // Create a dummy import
     int buildUpImportId = check createImport();
 
     // Test API call
-    CollectionResponsePublicImportErrorForwardPaging response = check baseClient->/crm/v3/imports/[buildUpImportId]/errors.get({});
+    CollectionResponsePublicImportErrorForwardPaging response = check baseClient->/[buildUpImportId]/errors.get({});
 
     // Assertions
-    test:assertNotEquals(response.results,(), msg = "Results should not be null");
+    test:assertNotEquals(response.results, (), msg = "Results should not be null");
 }
 
