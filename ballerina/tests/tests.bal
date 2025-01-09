@@ -2,7 +2,6 @@ import ballerina/io;
 import ballerina/oauth2;
 import ballerina/test;
 
-// OAuth 2.0 Credentials
 configurable string clientId = ?;
 configurable string clientSecret = ?;
 configurable string refreshToken = ?;
@@ -17,15 +16,12 @@ OAuth2RefreshTokenGrantConfig auth = {
     credentialBearer: oauth2:POST_BODY_BEARER
 };
 
-// Initialize the client
 ConnectionConfig config = {auth: auth};
 final Client baseClient = check new Client(config, serviceUrl);
 
-// Local variables
 json readJson = check io:fileReadJson("tests/resources/dummy_import_request.json");
 string importRequestString = readJson.toString();
 
-// Support functions
 function createImport() returns int|error {
     string csvFilePath = "tests/resources/dummy_file.csv";
     byte[] bytes = check io:fileReadBytes(csvFilePath);
@@ -44,7 +40,6 @@ function createImport() returns int|error {
     return buildUpImportId;
 };
 
-// Tests
 @test:Config{
     groups: ["live_tests", "mock_tests"]
 }

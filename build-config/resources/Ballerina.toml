@@ -5,8 +5,8 @@ name = "hubspot.crm.import"
 version = "@toml.version@"
 license = ["Apache-2.0"]
 authors = ["Ballerina"]
-keywords = [] # TODO: Add keywords
-# icon = "icon.png" # TODO: Add icon
+keywords = ["hubspot","crm", "imports"]
+# icon = "icon.png"
 repository = "https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import"
 
 [build-options]
