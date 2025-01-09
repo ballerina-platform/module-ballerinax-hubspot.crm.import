@@ -128,8 +128,8 @@ To use the `HubSpot CRM Imports` connector in your Ballerina application, update
 Import the `hubspot.crm.import` module and `oauth2` module.
 
 ```ballerina
-import ballerinax/hubspot.crm.'import as crmImport;
 import ballerina/oauth2;
+import ballerinax/hubspot.crm.'import as crmImport;
 ```
 
 ### Step 2: Instantiate a new connector

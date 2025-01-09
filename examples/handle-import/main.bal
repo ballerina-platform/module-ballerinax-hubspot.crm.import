@@ -46,7 +46,7 @@ public function main() returns error? {
         return error("The import is not successful");
     }
 
-    int responseId = check int:fromString(response.id ?: "0");
+    int responseId = check int:fromString(response.id ?: "");
     io:println("The import id is : " + responseId.toString());
 
     // Fetching the status of this import
