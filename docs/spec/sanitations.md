@@ -22,6 +22,8 @@ These changes are done in order to improve the overall usability, and as workaro
      - **Updated**: `/`
    - **Reason**: This modification simplifies the API paths, making them shorter and more readable. It also centralizes the versioning to the base URL, which is a common best practice.
 
+3. **'date-time' was changed to 'datetime'**
+
 ## OpenAPI cli command
 
 The following command was used to generate the Ballerina client from the OpenAPI specification. The command should be executed from the repository root directory.

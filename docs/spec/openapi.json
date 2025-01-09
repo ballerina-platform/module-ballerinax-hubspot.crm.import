@@ -512,15 +512,15 @@
           "properties" : {
             "completedAt" : {
               "type" : "string",
-              "format" : "date-time"
+              "format" : "datetime"
             },
             "requestedAt" : {
               "type" : "string",
-              "format" : "date-time"
+              "format" : "datetime"
             },
             "startedAt" : {
               "type" : "string",
-              "format" : "date-time"
+              "format" : "datetime"
             },
             "links" : {
               "type" : "object",
@@ -699,7 +699,7 @@
             },
             "createdAt" : {
               "type" : "string",
-              "format" : "date-time",
+              "format" : "datetime",
               "example" : "2020-01-14T22:45:00.153+00:00"
             },
             "metadata" : {
@@ -739,7 +739,7 @@
             },
             "updatedAt" : {
               "type" : "string",
-              "format" : "date-time",
+              "format" : "datetime",
               "example" : "2020-01-14T22:45:00.153+00:00"
             }
           }

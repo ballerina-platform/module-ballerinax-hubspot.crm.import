@@ -2,7 +2,6 @@
 org = "ballerinax"
 name = "hubspot.crm.import"
 version = "1.0.0"
-repository="local"
 
 [package]
 distribution = "2201.10.0"

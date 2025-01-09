@@ -1,12 +1,6 @@
 import ballerina/http;
-import ballerina/log;
 
-listener http:Listener httpListener = new (9090);
-
-http:Service mockService = service object {
-    # Get active imports
-    #
-    # + return - successful operation
+service on new http:Listener(9090) {
     resource function get .() returns CollectionResponsePublicImportResponse|http:Response {
         return {
             results: [],
@@ -19,10 +13,6 @@ http:Service mockService = service object {
         };  
     }
 
-    # Get the information on any import
-    #
-    # + importId - id of the import
-    # + return - successful operation 
     resource function get [int importId]() returns PublicImportResponse|http:Response {
         return {
             "state": "DONE",
@@ -49,9 +39,6 @@ http:Service mockService = service object {
         };
     }
 
-    # Get active imports
-    # 
-    # + return - successful operation 
     resource isolated function get [int importId]/errors() returns CollectionResponsePublicImportErrorForwardPaging|http:Response {
         return {
             "results": [],
@@ -64,9 +51,6 @@ http:Service mockService = service object {
         };
     }
 
-    # Start a new import
-    #
-    # + return - successful operation 
     resource isolated function post .() returns PublicImportResponse|http:Response {
         return {
             "state": "STARTED",
@@ -89,9 +73,6 @@ http:Service mockService = service object {
         };
     }
 
-    # Cancel an active import
-    #
-    # + return - successful operation 
     resource isolated function post [int importId]/cancel() returns ActionResponse|http:Response {
         return {
             "completedAt": "completedTime", 
@@ -100,13 +81,3 @@ http:Service mockService = service object {
             };
     }
 };
-
-function init() returns error? {
-    if isLiveServer {
-        log:printInfo("Skiping mock server initialization as the tests are running on live server");
-        return;
-    }
-    log:printInfo("Initiating mock server");
-    check httpListener.attach(mockService, "/");
-    check httpListener.'start();
-}
