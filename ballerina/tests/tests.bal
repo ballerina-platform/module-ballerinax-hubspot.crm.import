@@ -16,8 +16,7 @@ OAuth2RefreshTokenGrantConfig auth = {
     credentialBearer: oauth2:POST_BODY_BEARER
 };
 
-ConnectionConfig config = {auth: auth};
-final Client baseClient = check new Client(config, serviceUrl);
+final Client baseClient = check new ({auth});
 
 json readJson = check io:fileReadJson("tests/resources/dummy_import_request.json");
 string importRequestString = readJson.toString();
@@ -40,7 +39,7 @@ function createImport() returns int|error {
     return buildUpImportId;
 };
 
-@test:Config{
+@test:Config {
     groups: ["live_tests", "mock_tests"]
 }
 function testPost_() returns error? {
@@ -61,7 +60,7 @@ function testPost_() returns error? {
     test:assertEquals(response.state, "STARTED", "State should be in STARTED state");
 };
 
-@test:Config{
+@test:Config {
     groups: ["live_tests", "mock_tests"]
 }
 function testPost_importId_cancel() returns error? {
@@ -73,7 +72,7 @@ function testPost_importId_cancel() returns error? {
     test:assertNotEquals(response.status, (), msg = "No status in response");
 }
 
-@test:Config{
+@test:Config {
     groups: ["live_tests", "mock_tests"]
 }
 function testGet_importId() returns error? {
@@ -85,7 +84,7 @@ function testGet_importId() returns error? {
     test:assertNotEquals(response.id, (), "No id in response");
 }
 
-@test:Config{
+@test:Config {
     groups: ["live_tests", "mock_tests"]
 }
 function testGet_() returns error? {
@@ -101,7 +100,7 @@ function testGet_() returns error? {
     }
 }
 
-@test:Config{
+@test:Config {
     groups: ["live_tests", "mock_tests"]
 }
 function testGet_importId_error() returns error? {

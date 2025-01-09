@@ -15,8 +15,7 @@ crmImport:OAuth2RefreshTokenGrantConfig auth = {
 };
 
 // Initialize the client
-crmImport:ConnectionConfig config = {auth: auth};
-final crmImport:Client baseClient = check new crmImport:Client(config);
+final crmImport:Client baseClient = check new ({auth});
 
 public function main() returns error? {
     // Create an import request body

@@ -10,7 +10,7 @@ service on new http:Listener(9090) {
                     link: "link"
                 }
             }
-        };  
+        };
     }
 
     resource function get [int importId]() returns PublicImportResponse|http:Response {
@@ -75,9 +75,9 @@ service on new http:Listener(9090) {
 
     resource isolated function post [int importId]/cancel() returns ActionResponse|http:Response {
         return {
-            "completedAt": "completedTime", 
-            "startedAt": "startedTime", 
+            "completedAt": "completedTime",
+            "startedAt": "startedTime",
             "status": "COMPLETE"
-            };
+        };
     }
 };
