@@ -18,7 +18,7 @@ If you don't have a HubSpot Developer Account you can sign up to a free account 
 
 Within app developer accounts, you can create developer test accounts to test apps and integrations without affecting any real HubSpot data.
 
-> **Note:**_These accounts are only for development and testing purposes. In production you should not use Developer Test Accounts._**
+> **Note:**_These accounts are only for development and testing purposes. In production you should not use Developer Test Accounts._
 
 1. Go to Test Account section from the left sidebar.
 
@@ -149,7 +149,7 @@ import ballerina/oauth2;
     configurable string clientSecret = ?;
     configurable string refreshToken = ?;
 
-    final hscimport:ConnectionConfig hscimportConfig = {
+    final crmImport:ConnectionConfig config = {
         auth : {
             clientId,
             clientSecret,
@@ -169,11 +169,10 @@ Now, utilize the available connector operations. A sample usecase is shown below
     
 ```ballerina
 public function main() returns error? {
-    crmImport:CollectionResponsePublicImportResponse response = check baseClient->/crm/v3/imports.get({});
+    crmImport:CollectionResponsePublicImportResponse response = check baseClient->/.get({});
 }
 ```
 
-
 ## Examples
 
-The `HubSpot CRM Imports` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/examples), covering the following use cases:
+The `HubSpot.crm.imports` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/examples), covering the following use cases:
