@@ -321,7 +321,7 @@ modules = [
 ]
 
 [[package]]
-org = "wso2"
+org = "ballerinax"
 name = "hubspot.crm.import"
 version = "1.0.0"
 dependencies = [
@@ -335,6 +335,6 @@ dependencies = [
 	{org = "ballerinai", name = "observe"}
 ]
 modules = [
-	{org = "wso2", packageName = "hubspot.crm.import", moduleName = "hubspot.crm.import"}
+	{org = "ballerinax", packageName = "hubspot.crm.import", moduleName = "hubspot.crm.import"}
 ]
 
