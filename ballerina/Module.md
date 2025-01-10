@@ -2,7 +2,7 @@
 
 [HubSpot](https://www.hubspot.com/our-story) is an AI-powered customer relationship management (CRM) platform. 
 
-The `ballerinax/hubspot.crm.imports` offers APIs to connect and interact with the [HubSpot CRM Imports API](https://developers.hubspot.com/docs/api/crm/imports) endpoints, specifically based on the [HubSpot CRM Imports API v3 OpenAPI spec](https://github.com/HubSpot/HubSpot-public-api-spec-collection/blob/main/PublicApiSpecs/CRM/Imports/Rollouts/144903/v3/imports.json)
+The `ballerinax/hubspot.crm.imports` offers APIs to connect and interact with the [HubSpot CRM Imports API](https://developers.hubspot.com/docs/api/crm/imports) endpoints, specifically based on the [HubSpot CRM Imports REST API](https://developers.hubspot.com/docs/reference/api/crm/imports)
 
 ## Setup guide
 
@@ -18,49 +18,49 @@ If you don't have a HubSpot Developer Account you can sign up to a free account 
 
 Within app developer accounts, you can create developer test accounts to test apps and integrations without affecting any real HubSpot data.
 
-> **Note:**_These accounts are only for development and testing purposes. In production you should not use Developer Test Accounts._
+> **Note:**These accounts are only for development and testing purposes. In production you should not use Developer Test Accounts.
 
 1. Go to Test Account section from the left sidebar.
 
-   ![Hubspot developer portal](../docs/setup/resources/test_acc_1.png)
+   ![Hubspot developer portal](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/docs/setup/resources/test_acc_1.png)
 
 2. Click Create developer test account.
 
-   ![Hubspot developer test account](../docs/setup/resources/test_acc_2.png)
+   ![Hubspot developer test account](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/docs/setup/resources/test_acc_2.png)
 
 3. In the dialogue box, give a name to your test account and click create.
 
-   ![Create Hubspot developer test account](../docs/setup/resources/test_acc_3.png)
+   ![Create Hubspot developer test account](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/docs/setup/resources/test_acc_3.png)
 
 ### Step 3: Create a HubSpot App under your account.
 
 1. In your developer account, navigate to the "Apps" section. Click on "Create App"
 
-   ![Hubspot apps](../docs/setup/resources/create_app_1.png)
+   ![Hubspot apps](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/docs/setup/resources/create_app_1.png)
 
 2. Provide the necessary details, including the app name and description.
 
 ### Step 4: Configure the Authentication Flow.
 
-1. Move to the Auth Tab.
+1. Move to the "Auth" Tab.
 
-   ![Hubspot app auth tab](../docs/setup/resources/create_app_2.png)
+   ![Hubspot app auth tab](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/docs/setup/resources/create_app_2.png)
 
 2. In the Scopes section, add the following scopes for your app using the "Add new scope" button.
 
    `crm.objects.import`
 
-   ![Add new scope](../docs/setup/resources/scope_set.png)
+   ![Add new scope](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/docs/setup/resources/scope_set.png)
 
 4. Add your Redirect URI in the relevant section. You can also use localhost addresses for local development purposes. Click Create App.
 
-   ![Create app](../docs/setup/resources/create_app_final.png)
+   ![Create app](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/docs/setup/resources/create_app_final.png)
 
 ### Step 5: Get your Client ID and Client Secret
 
 - Navigate to the Auth section of your app. Make sure to save the provided Client ID and Client Secret.
 
-   ![Auth settings](../docs/setup/resources/get_credentials.png)
+   ![Auth settings](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/docs/setup/resources/get_credentials.png)
 
 ### Step 6: Setup Authentication Flow
 
@@ -74,17 +74,11 @@ Before proceeding with the Quickstart, ensure you have obtained the Access Token
 
    Replace the `<YOUR_CLIENT_ID>`, `<YOUR_REDIRECT_URI>` and `<YOUR_SCOPES>` with your specific value.
 
-    **_NOTE: If you are using a localhost redirect url, make sure to have a listener running at the relevant port before executing the next step. You can use [this gist](https://gist.github.com/lnash94/0af47bfcb7cc1e3d59e06364b3c86b59) and run it using `bal run`. Alternatively, you can use any other method to bind a listener to the port._**
-
 2. Paste it in the browser and select your developer test account to install the app when prompted.
 
-   ![Choose account](../docs/setup/resources/install_app.png)
+   ![Choose account](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/docs/setup/resources/install_app.png)
 
 3. A code will be displayed in the browser. Copy the code.
-
-   ```
-   Received code: na1-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-   ```
 
 4. Run the following curl command. Replace the `<YOUR_CLIENT_ID>`, `<YOUR_REDIRECT_URI`> and `<YOUR_CLIENT_SECRET>` with your specific value. Use the code you received in the above step 3 as the `<CODE>`.
 
@@ -158,7 +152,7 @@ import ballerinax/hubspot.crm.'import as crmImport;
         }
     };
 
-    final crmImport:Client baseClient = check new crmImport:Client(config);
+    final crmImport:Client baseClient = check new(config);
     ```
 
 ### Step 3: Invoke the connector operation

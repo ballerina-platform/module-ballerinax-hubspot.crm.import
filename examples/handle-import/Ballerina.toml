@@ -1,5 +1,5 @@
 [[dependency]]
-org = "ballerinax"
+org = "wso2"
 name = "hubspot.crm.import"
 version = "1.0.0"
 

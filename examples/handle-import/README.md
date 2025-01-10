@@ -1,6 +1,6 @@
 ## Customer Support tweets and Feedback Management
 
-This use case demonstrates how the HubSpot CRM Imports API can be utilized to efficiently import CRM records and activities into HubSpot. The example involves a sequence of actions that leverage the HubSpot CRM Imports API to streamline the data import process, including creating an import, monitoring its progress by checking the status, and canceling the import if needed.
+This use case demonstrates how the HubSpot CRM Imports connector can be utilized to efficiently import CRM records and activities into HubSpot. The example involves a sequence of actions that leverage the HubSpot CRM Imports API to streamline the data import process, including creating an import, monitoring its progress by checking the status, and canceling the import if needed.
 
 ## Prerequisites
 
