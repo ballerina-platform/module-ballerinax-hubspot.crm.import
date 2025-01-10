@@ -25,7 +25,7 @@ configurable string clientId = ?;
 configurable string clientSecret = ?;
 configurable string refreshToken = ?;
 
-configurable boolean isLiveServer = ?;
+configurable boolean isLiveServer = false;
 configurable string serviceUrl = isLiveServer ? "https://api.hubapi.com/crm/v3/imports" : "http://localhost:9090";
 
 OAuth2RefreshTokenGrantConfig auth = {
