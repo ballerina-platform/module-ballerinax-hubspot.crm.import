@@ -1,0 +1,35 @@
+{
+    "name": "First Contact Data",
+    "importOperations": {
+      "0-1": "CREATE"
+    },
+    "dateFormat": "DAY_MONTH_YEAR",
+    "files": [
+      {
+        "fileName": "dummy_file.csv",
+        "fileFormat": "CSV",
+        "fileImportPage": {
+          "hasHeader": true,
+          "columnMappings": [
+            {
+              "columnObjectTypeId": "0-1",
+              "columnName": "First Name",
+              "propertyName": "firstname"
+            },
+            {
+              "columnObjectTypeId": "0-1",
+              "columnName": "Last Name",
+              "propertyName": "lastname"
+            },
+            {
+              "columnObjectTypeId": "0-1",
+              "columnName": "Email",
+              "propertyName": "email",
+              "columnType": "HUBSPOT_ALTERNATE_ID"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

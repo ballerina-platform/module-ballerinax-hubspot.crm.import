@@ -1,16 +1,23 @@
 # Examples
 
-The `ballerinax/hubspot.crm.import` connector provides practical examples illustrating usage in various scenarios.
+The `hubspot.crm.import` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/examples), covering use cases like creating an import, fetching the status and cancelling an import.
 
-[//]: # (TODO: Add examples)
-1. 
-2. 
+1. [Creating a contact import](https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/examples/handle-import) - Integrate hubspot.crm.import API to create and manage a contact data import
+
 
 ## Prerequisites
 
-[//]: # (TODO: Add prerequisites)
+1. Generate Credentials to authenticate the connector as described in the [Setup Guide](https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/README.md).
 
-## Running an example
+2. For each example, create a `Config.toml` file the related configuration. Here's an example of how your `Config.toml` file should look:
+
+    ```toml
+    clientId = "<Client ID>"
+    clientSecret = "<Client Secret>"
+    refreshToken = "<Refresh Token>"
+    ```
+
+## Running an Example
 
 Execute the following commands to build an example from the source:
 
@@ -24,22 +31,4 @@ Execute the following commands to build an example from the source:
 
     ```bash
     bal run
-    ```
-
-## Building the examples with the local module
-
-**Warning**: Due to the absence of support for reading local repositories for single Ballerina files, the Bala of the module is manually written to the central repository as a workaround. Consequently, the bash script may modify your local Ballerina repositories.
-
-Execute the following commands to build all the examples against the changes you have made to the module locally:
-
-* To build all the examples:
-
-    ```bash
-    ./build.sh build
-    ```
-
-* To run all the examples:
-
-    ```bash
-    ./build.sh run
     ```
