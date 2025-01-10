@@ -6,7 +6,7 @@ version = "1.0.0"
 license = ["Apache-2.0"]
 authors = ["Ballerina"]
 keywords = ["hubspot","crm","imports"]
-# icon = "https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-hubspot.crm.import/main/docs/setup/resources/icon.png"
+icon = "icon.png"
 repository = "https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import"
 
 [build-options]
