@@ -81,13 +81,14 @@ public function main() returns error? {
     crmImport:ActionResponse|error cancelResponse = importClient->/[responseId]/cancel.post();
 
     if cancelResponse is error {
-        return io:println("Failed to cancel the import");
+        io:println("Failed to cancel the import");
+        return;
     }
 
     if cancelResponse.status == "COMPLETE" {
         io:println("The import was cancelled successfully");
+        return;
     }
-    else {
-        io:println("The import cancellation is in the state : " + cancelResponse.status);
-    }
+
+    io:println("The import cancellation is in the state : " + cancelResponse.status);
 }
