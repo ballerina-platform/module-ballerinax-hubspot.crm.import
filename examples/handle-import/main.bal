@@ -27,9 +27,9 @@ configurable string clientSecret = ?;
 configurable string refreshToken = ?;
 
 crmImport:OAuth2RefreshTokenGrantConfig auth = {
-    clientId: clientId,
-    clientSecret: clientSecret,
-    refreshToken: refreshToken,
+    clientId,
+    clientSecret,
+    refreshToken,
     credentialBearer: oauth2:POST_BODY_BEARER
 };
 
@@ -38,8 +38,7 @@ final crmImport:Client importClient = check new ({auth});
 
 public function main() returns error? {
     // Create an import request body
-    json readJson = check io:fileReadJson("resources/contact_import_request.json");
-    string importRequestString = readJson.toString();
+    string importRequestString = check io:fileReadString("resources/contact_import_request.json");
 
     // Loading the data file
     string filePath = "resources/contact_import_file.csv";
@@ -60,7 +59,7 @@ public function main() returns error? {
     io:println("The import is in the state : " + response.state);
 
     // Check if the import is successful
-    if response.id == null {
+    if response.id is () {
         return error("The import is not successful");
     }
 
@@ -69,7 +68,7 @@ public function main() returns error? {
 
     // Fetching the status of this import
     io:println("\nFetching the status of the import " + responseId.toString() + "...");
-    crmImport:PublicImportResponse|error statusResponse = importClient->/[responseId].get({});
+    crmImport:PublicImportResponse|error statusResponse = importClient->/[responseId].get();
     if statusResponse is error {
         io:println("Failed to fetch the status of the import");
     } else {
@@ -80,14 +79,16 @@ public function main() returns error? {
     // Cancel the import
     io:println("\nCanceling the import " + responseId.toString() + "...");
     crmImport:ActionResponse|error cancelResponse = importClient->/[responseId]/cancel.post();
+
     if cancelResponse is error {
         io:println("Failed to cancel the import");
-    } else {
-        if cancelResponse.status == "COMPLETE" {
-            io:println("The import was cancelled successfully");
-        }
-        else {
-            io:println("The import cancellation is in the state : " + cancelResponse.status);
-        }
+        return;
     }
+
+    if cancelResponse.status == "COMPLETE" {
+        io:println("The import was cancelled successfully");
+        return;
+    }
+
+    io:println("The import cancellation is in the state : " + cancelResponse.status);
 }
