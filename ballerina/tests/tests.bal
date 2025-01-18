@@ -19,23 +19,30 @@
 
 import ballerina/io;
 import ballerina/oauth2;
+import ballerina/os;
 import ballerina/test;
-
-configurable string clientId = ?;
-configurable string clientSecret = ?;
-configurable string refreshToken = ?;
 
 configurable boolean isLiveServer = false;
 configurable string serviceUrl = isLiveServer ? "https://api.hubapi.com/crm/v3/imports" : "http://localhost:9090";
 
-OAuth2RefreshTokenGrantConfig auth = {
-    clientId: clientId,
-    clientSecret: clientSecret,
-    refreshToken: refreshToken,
-    credentialBearer: oauth2:POST_BODY_BEARER
-};
+function initClient() returns Client|error {
+    if isLiveServer {
+        OAuth2RefreshTokenGrantConfig auth = {
+            clientId: os:getEnv("HUBSPOT_CLIENT_ID"),
+            clientSecret: os:getEnv("HUBSPOT_CLIENT_SECRET"),
+            refreshToken: os:getEnv("HUBSPOT_REFRESH_TOKEN"),
+            credentialBearer: oauth2:POST_BODY_BEARER
+        };
+        return check new ({auth}, serviceUrl);
+    }
+    return check new ({
+        auth: {
+            token: "test-token"
+        }
+    }, serviceUrl);
+}
 
-final Client baseClient = check new ({auth});
+final Client baseClient = check initClient();
 
 json readJson = check io:fileReadJson("tests/resources/dummy_import_request.json");
 string importRequestString = readJson.toString();
