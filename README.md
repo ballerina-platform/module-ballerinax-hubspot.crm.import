@@ -1,4 +1,4 @@
-# Ballerina HubSpot CRM Commerce Discounts connector
+# Ballerina HubSpot CRM Import connector
 
 [![Build](https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import/actions/workflows/ci.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import/actions/workflows/ci.yml)
 [![Trivy](https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import/actions/workflows/trivy-scan.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import/actions/workflows/trivy-scan.yml)
