@@ -19,14 +19,14 @@
 
 import ballerina/io;
 import ballerina/oauth2;
-import ballerinax/hubspot.crm.'import as crmImport;
+import ballerinax/hubspot.crm.'import as crmimport;
 
 // OAuth 2.0 Credentials
 configurable string clientId = ?;
 configurable string clientSecret = ?;
 configurable string refreshToken = ?;
 
-crmImport:OAuth2RefreshTokenGrantConfig auth = {
+crmimport:OAuth2RefreshTokenGrantConfig auth = {
     clientId,
     clientSecret,
     refreshToken,
@@ -34,7 +34,7 @@ crmImport:OAuth2RefreshTokenGrantConfig auth = {
 };
 
 // Initialize the client
-final crmImport:Client importClient = check new ({auth});
+final crmimport:Client hubspotImport = check new ({auth});
 
 public function main() returns error? {
     // Create an import request body
@@ -45,7 +45,7 @@ public function main() returns error? {
     byte[] bytes = check io:fileReadBytes(filePath);
 
     // Request body
-    crmImport:body requestBody = {
+    crmimport:body requestBody = {
         files: {
             fileContent: bytes,
             fileName: "contact_import_file.csv"
@@ -55,7 +55,7 @@ public function main() returns error? {
 
     // Create an import
     io:println("Creating an import...");
-    crmImport:PublicImportResponse response = check importClient->/.post(payload = requestBody);
+    crmimport:PublicImportResponse response = check hubspotImport->/.post(payload = requestBody);
     io:println("The import is in the state : " + response.state);
 
     // Check if the import is successful
@@ -68,7 +68,7 @@ public function main() returns error? {
 
     // Fetching the status of this import
     io:println("\nFetching the status of the import " + responseId.toString() + "...");
-    crmImport:PublicImportResponse|error statusResponse = importClient->/[responseId].get();
+    crmimport:PublicImportResponse|error statusResponse = hubspotImport->/[responseId].get();
     if statusResponse is error {
         io:println("Failed to fetch the status of the import");
     } else {
@@ -78,7 +78,7 @@ public function main() returns error? {
 
     // Cancel the import
     io:println("\nCanceling the import " + responseId.toString() + "...");
-    crmImport:ActionResponse|error cancelResponse = importClient->/[responseId]/cancel.post();
+    crmimport:ActionResponse|error cancelResponse = hubspotImport->/[responseId]/cancel.post();
 
     if cancelResponse is error {
         io:println("Failed to cancel the import");
