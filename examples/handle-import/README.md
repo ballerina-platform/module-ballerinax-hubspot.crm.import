@@ -4,7 +4,7 @@ This use case demonstrates how the HubSpot CRM Imports connector can be utilized
 
 ## Prerequisites
 
-### 1. Setup Hubspot developer account
+### 1. Setup HubSpot developer account
 
 Refer to the [Setup guide](https://github.com/ballerina-platform/module-ballerinax-hubspot.crm.import/tree/main/README.md) to obtain necessary credentials (client Id, client secret, tokens).
 
@@ -22,6 +22,6 @@ refreshToken = "<Refresh Token>"
 
 Execute the following command to run the example:
 
-```
+```shell
 bal run
 ```
