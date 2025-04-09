@@ -45,7 +45,7 @@ public function main() returns error? {
     byte[] bytes = check io:fileReadBytes(filePath);
 
     // Request body
-    crmimport:body requestBody = {
+    crmimport:Body requestBody = {
         files: {
             fileContent: bytes,
             fileName: "contact_import_file.csv"
@@ -63,7 +63,7 @@ public function main() returns error? {
         return error("The import is not successful");
     }
 
-    int responseId = check int:fromString(response.id ?: "");
+    int responseId = check int:fromString(response.id);
     io:println("The import id is : " + responseId.toString());
 
     // Fetching the status of this import

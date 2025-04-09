@@ -51,7 +51,7 @@ function createImport() returns int|error {
     string csvFilePath = "tests/resources/dummy_file.csv";
     byte[] bytes = check io:fileReadBytes(csvFilePath);
 
-    body requestBody = {
+    Body requestBody = {
         files: {
             fileContent: bytes,
             fileName: "dummy_file.csv"
@@ -60,7 +60,7 @@ function createImport() returns int|error {
     };
 
     PublicImportResponse buildupResponse = check baseClient->/.post(payload = requestBody);
-    int buildUpImportId = check int:fromString(buildupResponse.id ?: "0");
+    int buildUpImportId = check int:fromString(buildupResponse.id);
 
     return buildUpImportId;
 };
@@ -72,7 +72,7 @@ function testPost_() returns error? {
     string csvFilePath = "tests/resources/dummy_file.csv";
     byte[] bytes = check io:fileReadBytes(csvFilePath);
 
-    body requestBody = {
+    Body requestBody = {
         files: {
             fileContent: bytes,
             fileName: "dummy_file.csv"
@@ -118,7 +118,7 @@ function testGet_() returns error? {
 
     test:assertNotEquals(response.results, null, msg = "Value should not be null");
 
-    PublicImportResponse[] results = response.results ?: [];
+    PublicImportResponse[] results = response.results;
     if (results.length() > 0) {
         foreach var item in results {
             test:assertNotEquals(item.id, (), "No id in response");
