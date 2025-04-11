@@ -17,6 +17,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
+import ballerina/data.jsondata;
 import ballerina/http;
 import ballerina/mime;
 
@@ -110,7 +111,7 @@ public isolated client class Client {
         }
         map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
         http:Request request = new;
-        mime:Entity[] bodyParts = check createBodyParts(payload);
+        mime:Entity[] bodyParts = check createBodyParts(check jsondata:toJson(payload).ensureType());
         request.setBodyParts(bodyParts);
         return self.clientEp->post(resourcePath, request, httpHeaders);
     }
