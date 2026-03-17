@@ -2,7 +2,14 @@
 
 [HubSpot](https://www.hubspot.com/our-story) is an AI-powered customer relationship management (CRM) platform.
 
-The `ballerinax/hubspot.crm.imports` offers APIs to connect and interact with the [HubSpot CRM Imports API](https://developers.hubspot.com/docs/api/crm/imports) endpoints, specifically based on the [HubSpot CRM Imports REST API](https://developers.hubspot.com/docs/reference/api/crm/imports)
+The HubSpot connector offers APIs to connect and interact with the [HubSpot CRM Imports API](https://developers.hubspot.com/docs/api/crm/imports) endpoints, specifically based on the [HubSpot CRM Imports REST API](https://developers.hubspot.com/docs/reference/api/crm/imports)
+
+### Key Features
+
+- Import CRM records from external data sources
+- Monitor import job status and progress
+- Cancel active import operations
+- Retrieve import error details for troubleshooting
 
 ## Setup guide
 
