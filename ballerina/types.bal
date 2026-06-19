@@ -19,11 +19,15 @@
 
 import ballerina/http;
 
+# Paginated collection of CRM import response records
 public type CollectionResponsePublicImportResponse record {
+    # Pagination cursor references for next and previous pages
     Paging paging?;
+    # Array of import response objects returned in this page
     PublicImportResponse[] results;
 };
 
+# Identifies a list and object type for imported CRM records
 public type PublicObjectListRecord record {
     # The ID of the list containing the imported objects
     string listId;
@@ -31,55 +35,93 @@ public type PublicObjectListRecord record {
     string objectType;
 };
 
+# Pagination cursor references for next and previous pages
 public type Paging record {
+    # Pagination cursor and link for retrieving the next page of results
     NextPage next?;
+    # Pagination object containing a cursor and link referencing the previous page of results
     PreviousPage prev?;
 };
 
+# Full property value record including source, sensitivity, and audit metadata
 public type PropertyValue record {
+    # Identifier of the specific source that set this value
     string sourceId;
+    # Indicates whether a user explicitly selected this value
     boolean selectedByUser;
+    # Human-readable label describing the value's source
     string sourceLabel;
+    # System or integration that originated this property value
     "UNKNOWN"|"IMPORT"|"API"|"FORM"|"ANALYTICS"|"MIGRATION"|"SALESFORCE"|"INTEGRATION"|"CONTACTS_WEB"|"WAL_INCREMENTAL"|"TASK"|"EMAIL"|"WORKFLOWS"|"CALCULATED"|"SOCIAL"|"BATCH_UPDATE"|"SIGNALS"|"BIDEN"|"DEFAULT"|"COMPANIES"|"DEALS"|"ASSISTS"|"PRESENTATIONS"|"TALLY"|"SIDEKICK"|"CRM_UI"|"MERGE_CONTACTS"|"PORTAL_USER_ASSOCIATOR"|"INTEGRATIONS_PLATFORM"|"BCC_TO_CRM"|"FORWARD_TO_CRM"|"ENGAGEMENTS"|"SALES"|"HEISENBERG"|"LEADIN"|"GMAIL_INTEGRATION"|"ACADEMY"|"SALES_MESSAGES"|"AVATARS_SERVICE"|"MERGE_COMPANIES"|"SEQUENCES"|"COMPANY_FAMILIES"|"MOBILE_IOS"|"MOBILE_ANDROID"|"CONTACTS"|"ASSOCIATIONS"|"EXTENSION"|"SUCCESS"|"BOT"|"INTEGRATIONS_SYNC"|"AUTOMATION_PLATFORM"|"CONVERSATIONS"|"EMAIL_INTEGRATION"|"CONTENT_MEMBERSHIP"|"QUOTES"|"BET_ASSIGNMENT"|"QUOTAS"|"BET_CRM_CONNECTOR"|"MEETINGS"|"MERGE_OBJECTS"|"RECYCLING_BIN"|"ADS"|"AI_GROUP"|"COMMUNICATOR"|"SETTINGS"|"PROPERTY_SETTINGS"|"PIPELINE_SETTINGS"|"COMPANY_INSIGHTS"|"BEHAVIORAL_EVENTS"|"PAYMENTS"|"GOALS"|"PORTAL_OBJECT_SYNC"|"APPROVALS"|"FILE_MANAGER"|"MARKETPLACE"|"INTERNAL_PROCESSING"|"FORECASTING"|"SLACK_INTEGRATION"|"CRM_UI_BULK_ACTION"|"WORKFLOW_CONTACT_DELETE_ACTION"|"ACCEPTANCE_TEST"|"PLAYBOOKS"|"CHATSPOT"|"FLYWHEEL_PRODUCT_DATA_SYNC"|"HELP_DESK"|"BILLING"|"DATA_ENRICHMENT"|"AUTOMATION_JOURNEY"|"MICROAPPS"|"INTENT"|"PROSPECTING_AGENT" 'source;
+    # ID of the user who last updated this property value
     int:Signed32 updatedByUserId;
+    # Timestamp (ms) used to determine value persistence ordering
     int persistenceTimestamp;
+    # Additional metadata string describing the value's source context
     string sourceMetadata;
+    # Sensitivity classification of the property value: none, standard, or high
     "none"|"standard"|"high" dataSensitivity;
+    # List of source object IDs associated with this property value
     int[] sourceVid;
+    # Unit of measurement associated with this property value
     string unit;
+    # Identifier of the request that produced this property value
     string requestId;
+    # Indicates whether the property value is encrypted
     boolean isEncrypted;
+    # The name of the property
     string name;
+    # Whether to use the provided timestamp as the persistence timestamp
     boolean useTimestampAsPersistenceTimestamp;
+    # The value assigned to the property
     string value;
+    # Unix timestamp (ms) when the value was selected by the user
     int selectedByUserTimestamp;
+    # Unix timestamp (ms) associated with the property value
     int timestamp;
+    # Indicates whether the property value exceeds standard size limits
     boolean isLargeValue;
 };
 
+# Defines the template used to guide an import, including the template type and its unique identifier
 public type ImportTemplate record {
+    # The source type of the template: admin-defined, previous import, or user file
     "admin_defined"|"previous_import"|"user_file" templateType;
+    # The unique identifier of the import template
     int:Signed32 templateId;
 };
 
+# Represents a single row of data from an import file, including raw row content, line number, file reference, and encryption status
 public type ImportRowCore record {
+    # Array of string values representing the raw data in the import row
     string[] rowData;
+    # Indicates whether the row contains encrypted property values
     boolean containsEncryptedProperties;
+    # The line number of this row within the import file
     int:Signed32 lineNumber;
+    # The name of the sheet or page containing this row
     string pageName?;
+    # The unique identifier of the import file this row belongs to
     int:Signed32 fileId;
 };
 
+# Represents the status and lifecycle timestamps of an asynchronous action, including start, completion, and current processing state
 public type ActionResponse record {
+    # The datetime when the action completed
     string completedAt;
+    # The datetime when the action was requested
     string requestedAt?;
+    # The datetime when the action began processing
     string startedAt;
+    # Map of related resource links associated with the action response
     record {|string...;|} links?;
+    # Current processing status of the action
     "PENDING"|"PROCESSING"|"CANCELED"|"COMPLETE" status;
 };
 
 # Represents the Queries record for the operation: get-/_getPage
 public type GetGetPageQueries record {
+    # A cursor token to retrieve results appearing before this value in the paginated list
     string before?;
     # The maximum number of results to display per page
     int:Signed32 'limit?;
@@ -87,7 +129,9 @@ public type GetGetPageQueries record {
     string after?;
 };
 
+# Pagination object containing a reference to the next page of results
 public type ForwardPaging record {
+    # Pagination cursor and link for retrieving the next page of results
     NextPage next?;
 };
 
@@ -103,26 +147,43 @@ public type GetImportIdErrorsGetErrorsQueries record {
     boolean includeErrorMessage?;
 };
 
+# Represents a single error encountered during a CRM import, including error type, source row data, and the invalid value
 public type PublicImportError record {
+    # Unix timestamp (int32) when the import error was recorded
     int:Signed32 createdAt;
+    # Additional contextual detail about the import error
     string extraContext?;
+    # Identifier of the object type involved in the import error
     string objectTypeId?;
+    # Enumerated category classifying the specific type of import error
     "INCORRECT_NUMBER_OF_COLUMNS"|"INVALID_OBJECT_ID"|"INVALID_ASSOCIATION_IDENTIFIER"|"NO_OBJECT_ID_FROM_ASSOCIATION_IDENTIFIER"|"MULTIPLE_COMPANIES_WITH_THIS_DOMAIN"|"PROPERTY_DEFINITION_NOT_FOUND"|"PROPERTY_VALUE_NOT_FOUND"|"COULD_NOT_FIND_OWNER"|"MULTIPLE_OWNERS_FOUND"|"COULD_NOT_FIND_BUSINESS_UNIT"|"COULD_NOT_PARSE_NUMBER"|"COULD_NOT_PARSE_DATE"|"COULD_NOT_PARSE_TERM"|"OUTSIDE_VALID_TIME_RANGE"|"OUTSIDE_VALID_TERM_RANGE"|"COULD_NOT_PARSE_ROW"|"INVALID_ENUMERATION_OPTION"|"AMBIGUOUS_ENUMERATION_OPTION"|"FAILED_VALIDATION"|"FAILED_TO_CREATE_ASSOCIATION"|"ASSOCIATION_LIMIT_EXCEEDED"|"FILE_NOT_FOUND"|"INVALID_COLUMN_CONFIGURATION"|"INVALID_FILE_TYPE"|"INVALID_SPREADSHEET"|"INVALID_SHEET_COUNT"|"FAILED_TO_PROCESS_OBJECT_WITH_EMPTY_PROPERTY_VALUES"|"UNKNOWN_BAD_REQUEST"|"GDPR_BLACKLISTED_EMAIL"|"DUPLICATE_ASSOCIATION_ID"|"LIMIT_EXCEEDED"|"PORTAL_WIDE_CUSTOM_OBJECT_LIMIT_EXCEEDED"|"INVALID_ALTERNATE_ID"|"INVALID_EMAIL"|"SECONDARY_EMAIL_WRITE_FAILURE"|"INVALID_DOMAIN"|"DUPLICATE_ROW_CONTENT"|"INVALID_NUMBER_SIZE"|"UNKNOWN_ERROR"|"FAILED_TO_OPT_OUT_CONTACT"|"INVALID_REQUIRED_PROPERTY"|"MISSING_REQUIRED_PROPERTY"|"DUPLICATE_ALTERNATE_ID"|"DUPLICATE_OBJECT_ID"|"DUPLICATE_UNIQUE_PROPERTY_VALUE"|"UNKNOWN_ASSOCIATION_RECORD_ID"|"INVALID_RECORD_ID"|"DUPLICATE_RECORD_ID"|"INVALID_CUSTOM_PROPERTY_VALIDATION"|"CREATE_ONLY_IMPORT"|"UPDATE_ONLY_IMPORT"|"COLUMN_TOO_LARGE"|"ROW_DATA_TOO_LARGE"|"MISSING_EVENT_TIMESTAMP"|"INVALID_EVENT_TIMESTAMP"|"INVALID_EVENT"|"DUPLICATE_EVENT"|"MISSING_EVENT_DEFINITION"|"INVALID_ASSOCIATION_KEY"|"ASSOCIATION_RECORD_NOT_FOUND"|"MISSING_OBJECT_DEFINITION"|"ASSOCIATION_LABEL_NOT_FOUND"|"MANY_ERRORS_IN_ROW" errorType;
+    # Full property value record including source, sensitivity, and audit metadata
     PropertyValue invalidPropertyValue?;
+    # Human-readable description of the import error
     string errorMessage?;
+    # Column number in the import file where the error was detected
     int:Signed32 knownColumnNumber?;
+    # Formatted representation of the invalid value for display purposes
     string invalidValueToDisplay?;
+    # Unique identifier for the import error record
     string id;
+    # Represents a single row of data from an import file, including raw row content, line number, file reference, and encryption status
     ImportRowCore sourceData;
+    # The CRM object type targeted by the import that produced the error
     "CONTACT"|"COMPANY"|"DEAL"|"ENGAGEMENT"|"TICKET"|"OWNER"|"PRODUCT"|"LINE_ITEM"|"BET_DELIVERABLE_SERVICE"|"CONTENT"|"CONVERSATION"|"BET_ALERT"|"PORTAL"|"QUOTE"|"FORM_SUBMISSION_INBOUNDDB"|"QUOTA"|"UNSUBSCRIBE"|"COMMUNICATION"|"FEEDBACK_SUBMISSION"|"ATTRIBUTION"|"SALESFORCE_SYNC_ERROR"|"RESTORABLE_CRM_OBJECT"|"HUB"|"LANDING_PAGE"|"PRODUCT_OR_FOLDER"|"TASK"|"FORM"|"MARKETING_EMAIL"|"AD_ACCOUNT"|"AD_CAMPAIGN"|"AD_GROUP"|"AD"|"KEYWORD"|"CAMPAIGN"|"SOCIAL_CHANNEL"|"SOCIAL_POST"|"SITE_PAGE"|"BLOG_POST"|"IMPORT"|"EXPORT"|"CTA"|"TASK_TEMPLATE"|"AUTOMATION_PLATFORM_FLOW"|"OBJECT_LIST"|"NOTE"|"MEETING_EVENT"|"CALL"|"EMAIL"|"PUBLISHING_TASK"|"CONVERSATION_SESSION"|"CONTACT_CREATE_ATTRIBUTION"|"INVOICE"|"MARKETING_EVENT"|"CONVERSATION_INBOX"|"CHATFLOW"|"MEDIA_BRIDGE"|"SEQUENCE"|"SEQUENCE_STEP"|"FORECAST"|"SNIPPET"|"TEMPLATE"|"DEAL_CREATE_ATTRIBUTION"|"QUOTE_TEMPLATE"|"QUOTE_MODULE"|"QUOTE_MODULE_FIELD"|"QUOTE_FIELD"|"SEQUENCE_ENROLLMENT"|"SUBSCRIPTION"|"ACCEPTANCE_TEST"|"SOCIAL_BROADCAST"|"DEAL_SPLIT"|"DEAL_REGISTRATION"|"GOAL_TARGET"|"GOAL_TARGET_GROUP"|"PORTAL_OBJECT_SYNC_MESSAGE"|"FILE_MANAGER_FILE"|"FILE_MANAGER_FOLDER"|"SEQUENCE_STEP_ENROLLMENT"|"APPROVAL"|"APPROVAL_STEP"|"CTA_VARIANT"|"SALES_DOCUMENT"|"DISCOUNT"|"FEE"|"TAX"|"MARKETING_CALENDAR"|"PERMISSIONS_TESTING"|"PRIVACY_SCANNER_COOKIE"|"DATA_SYNC_STATE"|"WEB_INTERACTIVE"|"PLAYBOOK"|"FOLDER"|"PLAYBOOK_QUESTION"|"PLAYBOOK_SUBMISSION"|"PLAYBOOK_SUBMISSION_ANSWER"|"COMMERCE_PAYMENT"|"GSC_PROPERTY"|"SOX_PROTECTED_DUMMY_TYPE"|"BLOG_LISTING_PAGE"|"QUARANTINED_SUBMISSION"|"PAYMENT_SCHEDULE"|"PAYMENT_SCHEDULE_INSTALLMENT"|"MARKETING_CAMPAIGN_UTM"|"DISCOUNT_TEMPLATE"|"DISCOUNT_CODE"|"FEEDBACK_SURVEY"|"CMS_URL"|"SALES_TASK"|"SALES_WORKLOAD"|"USER"|"POSTAL_MAIL"|"SCHEMAS_BACKEND_TEST"|"PAYMENT_LINK"|"SUBMISSION_TAG"|"CAMPAIGN_STEP"|"SCHEDULING_PAGE"|"SOX_PROTECTED_TEST_TYPE"|"ORDER"|"MARKETING_SMS"|"PARTNER_ACCOUNT"|"CAMPAIGN_TEMPLATE"|"CAMPAIGN_TEMPLATE_STEP"|"PLAYLIST"|"CLIP"|"CAMPAIGN_BUDGET_ITEM"|"CAMPAIGN_SPEND_ITEM"|"MIC"|"CONTENT_AUDIT"|"CONTENT_AUDIT_PAGE"|"PLAYLIST_FOLDER"|"LEAD"|"ABANDONED_CART"|"EXTERNAL_WEB_URL"|"VIEW"|"VIEW_BLOCK"|"ROSTER"|"CART"|"AUTOMATION_PLATFORM_FLOW_ACTION"|"SOCIAL_PROFILE"|"PARTNER_CLIENT"|"ROSTER_MEMBER"|"MARKETING_EVENT_ATTENDANCE"|"ALL_PAGES"|"AI_FORECAST"|"CRM_PIPELINES_DUMMY_TYPE"|"KNOWLEDGE_ARTICLE"|"PROPERTY_INFO"|"DATA_PRIVACY_CONSENT"|"GOAL_TEMPLATE"|"SCORE_CONFIGURATION"|"AUDIENCE"|"PARTNER_CLIENT_REVENUE"|"AUTOMATION_JOURNEY"|"COMBO_EVENT_CONFIGURATION"|"CRM_OBJECTS_DUMMY_TYPE"|"CASE_STUDY"|"SERVICE"|"PODCAST_EPISODE"|"PARTNER_SERVICE"|"PROSPECTING_AGENT_CONTACT_ASSIGNMENT"|"UNKNOWN" objectType?;
+    # The raw value that failed validation during the import
     string invalidValue?;
 };
 
+# Pagination object containing a cursor and link referencing the previous page of results
 public type PreviousPage record {
+    # Cursor token representing the start of the previous page
     string before;
+    # URL link to the previous page of results
     string link?;
 };
 
+# Metadata summarizing the outcomes, file IDs, and object lists associated with a CRM import operation
 public type PublicImportMetadata record {
     # Summarized outcomes of each row a developer attempted to import into HubSpot
     record {|int:Signed32...;|} counters;
@@ -139,46 +200,65 @@ public type OAuth2RefreshTokenGrantConfig record {|
     string refreshUrl = "https://api.hubapi.com/oauth/v1/token";
 |};
 
+# A paginated collection of import errors encountered during a CRM import, with forward paging support
 public type CollectionResponsePublicImportErrorForwardPaging record {
+    # Pagination object containing a reference to the next page of results
     ForwardPaging paging?;
+    # Array of import errors encountered during the import
     PublicImportError[] results;
 };
 
+# Represents the full state and metadata of a CRM import, including status, source, mapped object types, and processing outcomes
 public type PublicImportResponse record {
+    # Defines the template used to guide an import, including the template type and its unique identifier
     ImportTemplate importTemplate?;
+    # Timestamp when the import was created
     string createdAt;
+    # Metadata summarizing the outcomes, file IDs, and object lists associated with a CRM import operation
     PublicImportMetadata metadata;
+    # The raw JSON request payload submitted for the import
     record {} importRequestJson?;
+    # The platform or channel through which the import was initiated
     "API"|"CRM_UI"|"IMPORT"|"MOBILE_ANDROID"|"MOBILE_IOS"|"SALESFORCE" importSource?;
+    # The user-defined name assigned to the import
     string importName?;
     # The status of the import
     "STARTED"|"PROCESSING"|"DONE"|"FAILED"|"CANCELED"|"DEFERRED"|"REVERTED" state;
+    # Unique identifier for the import
     string id;
     # Whether or not the import is a list of people disqualified from receiving emails
     boolean optOutImport;
+    # List of object type IDs mapped during the import
     string[] mappedObjectTypeIds;
+    # Timestamp when the import was last updated
     string updatedAt;
 };
 
+# Pagination cursor and link for retrieving the next page of results
 public type NextPage record {
+    # URL link to the next page of results
     string link?;
+    # Cursor token used to fetch the next page of results
     string after;
 };
 
+# Multipart request body containing the import file and import configuration
 public type Body record {
+    # Binary file content to be uploaded for import
     record {byte[] fileContent; string fileName;} files?;
+    # The serialized import request payload containing import configuration details
     string importRequest?;
 };
 
-# Provides API key configurations needed when communicating with a remote HTTP endpoint.
+# Provides API key configurations needed when communicating with a remote HTTP endpoint
 public type ApiKeysConfig record {|
     string privateAppLegacy;
 |};
 
-# Provides a set of configurations for controlling the behaviours when communicating with a remote HTTP endpoint.
+# Provides a set of configurations for controlling the behaviours when communicating with a remote HTTP endpoint
 @display {label: "Connection Config"}
 public type ConnectionConfig record {|
-    # Provides Auth configurations needed when communicating with a remote HTTP endpoint.
+    # Provides Auth configurations needed when communicating with a remote HTTP endpoint
     http:BearerTokenConfig|OAuth2RefreshTokenGrantConfig|ApiKeysConfig auth;
     # The HTTP version understood by the client
     http:HttpVersion httpVersion = http:HTTP_2_0;
@@ -215,6 +295,6 @@ public type ConnectionConfig record {|
     # Enables the inbound payload validation functionality which provided by the constraint package. Enabled by default
     boolean validation = true;
     # Enables relaxed data binding on the client side. When enabled, `nil` values are treated as optional, 
-    # and absent fields are handled as `nilable` types. Enabled by default.
+    # and absent fields are handled as `nilable` types. Enabled by default
     boolean laxDataBinding = true;
 |};

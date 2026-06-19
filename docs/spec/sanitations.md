@@ -1,6 +1,6 @@
 _Author_:  @charanamanawathilake \
 _Created_: 2024/12/18 \
-_Updated_: 2025/01/07 \
+_Updated_: 2026/06/17 \
 _Edition_: Swan Lake
 
 # Sanitation for OpenAPI specification
@@ -13,7 +13,6 @@ These changes are done in order to improve the overall usability, and as workaro
    - **Original**: `https://api.hubapi.com`
    - **Updated**: `https://api.hubapi.com/crm/v3/imports`
    - **Reason**: This change is made to ensure that all API paths are relative to the URL (`/crm/v3/imports`), which improves the consistency and usability of the APIs.
-
 
 2. **Update API Paths**:
    - **Original**: Paths shared a common segment across all resource endpoints.

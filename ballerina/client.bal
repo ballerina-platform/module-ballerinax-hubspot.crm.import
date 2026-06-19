@@ -24,7 +24,7 @@ import ballerina/mime;
 public isolated client class Client {
     final http:Client clientEp;
     final readonly & ApiKeysConfig? apiKeyConfig;
-    # Gets invoked to initialize the `connector`.
+    # Gets invoked to initialize the `connector`
     #
     # + config - The configurations to be used when initializing the `connector` 
     # + serviceUrl - URL of the target service 
@@ -42,6 +42,7 @@ public isolated client class Client {
 
     # Cancel an active import
     #
+    # + importId - The unique numeric identifier of the import to cancel
     # + headers - Headers to be sent with the request 
     # + return - successful operation 
     resource isolated function post [int importId]/cancel(map<string|string[]> headers = {}) returns ActionResponse|error {
@@ -57,6 +58,7 @@ public isolated client class Client {
 
     # Get the information on any import
     #
+    # + importId - The unique numeric identifier of the import to retrieve
     # + headers - Headers to be sent with the request 
     # + return - successful operation 
     resource isolated function get [int importId](map<string|string[]> headers = {}) returns PublicImportResponse|error {
@@ -69,6 +71,9 @@ public isolated client class Client {
         return self.clientEp->get(resourcePath, httpHeaders);
     }
 
+    # Retrieve errors for an import
+    #
+    # + importId - The unique numeric identifier of the import whose errors are to be retrieved
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - successful operation 
